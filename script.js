@@ -65,6 +65,11 @@ document.getElementById("lBtn").addEventListener("click", function() { tetrisTyp
 document.getElementById("jBtn").addEventListener("click", function() { tetrisType = "assets/Tetris-J.svg"; fetchTemplate(tetrisType, rotPos); });
 document.getElementById("tBtn").addEventListener("click", function() { tetrisType = "assets/test.txt"; fetchTemplate(tetrisType, rotPos); });
 
+document.getElementById("rotABtn").addEventListener("click", function() { rotPos = "0.7071 -0.7071 0.7071 0.7071"; fetchTemplate(tetrisType, rotPos); });
+document.getElementById("rotBBtn").addEventListener("click", function() { rotPos = "0.7071 0.7071 -0.7071 0.7071"; fetchTemplate(tetrisType, rotPos); });
+document.getElementById("rotCBtn").addEventListener("click", function() { rotPos = "-0.7071 0.7071 -0.7071 -0.7071"; fetchTemplate(tetrisType, rotPos); });
+document.getElementById("rotDBtn").addEventListener("click", function() { rotPos = "-0.7071 -0.7071 0.7071 -0.7071"; fetchTemplate(tetrisType, rotPos); });
+
 document.getElementById("fieldLocation").addEventListener("input", () => fetchTemplate(tetrisType, rotPos));
 document.getElementById("fieldFName").addEventListener("input", () => fetchTemplate(tetrisType, rotPos));
 document.getElementById("fieldLName").addEventListener("input", () => fetchTemplate(tetrisType, rotPos));
