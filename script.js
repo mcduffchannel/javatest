@@ -1,6 +1,6 @@
-var tetrisType = "O"
+var tetrisType = "asset/test.txt"
 
-function fetchTemplate() {
+function fetchTemplate(loadType) {
     var xhr = new XMLHttpRequest();
     xhr.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
@@ -8,7 +8,7 @@ function fetchTemplate() {
             updateText(this.responseText.trim());
         }
     };
-    xhr.open("GET", "assets/test.txt", true);
+    xhr.open("GET", loadType, true);
     xhr.send();
 }
 
@@ -55,17 +55,17 @@ function downloadSVG() {
 }
 
 document.getElementById("downloadBtn").addEventListener("click", downloadSVG);
-//document.getElementById("oBtn").addEventListener("click", downloadSVG);
-//document.getElementById("iBtn").addEventListener("click", downloadSVG);
-//document.getElementById("sBtn").addEventListener("click", downloadSVG);
-//document.getElementById("zBtn").addEventListener("click", downloadSVG);
-//document.getElementById("lBtn").addEventListener("click", downloadSVG);
-//document.getElementById("jBtn").addEventListener("click", downloadSVG);
-//document.getElementById("tBtn").addEventListener("click", downloadSVG);
+document.getElementById("oBtn").addEventListener("click", function() { tetrisType = "asset/test.txt"; fetchTemplate(tetrisType); });
+document.getElementById("iBtn").addEventListener("click", function() { tetrisType = "asset/test.txt"; fetchTemplate(tetrisType); });
+document.getElementById("sBtn").addEventListener("click", function() { tetrisType = "asset/test.txt"; fetchTemplate(tetrisType); });
+document.getElementById("zBtn").addEventListener("click", function() { tetrisType = "asset/test.txt"; fetchTemplate(tetrisType); });
+document.getElementById("lBtn").addEventListener("click", function() { tetrisType = "asset/test.txt"; fetchTemplate(tetrisType); });
+document.getElementById("jBtn").addEventListener("click", function() { tetrisType = "asset/test.txt"; fetchTemplate(tetrisType); });
+document.getElementById("tBtn").addEventListener("click", function() { tetrisType = "asset/test.txt"; fetchTemplate(tetrisType); });
 
-document.getElementById("fieldLocation").addEventListener("input", fetchTemplate);
-document.getElementById("fieldFName").addEventListener("input", fetchTemplate);
-document.getElementById("fieldLName").addEventListener("input", fetchTemplate);
-document.getElementById("fieldDate").addEventListener("input", fetchTemplate);
+document.getElementById("fieldLocation").addEventListener("input", fetchTemplate(tetrisType));
+document.getElementById("fieldFName").addEventListener("input", fetchTemplate(tetrisType));
+document.getElementById("fieldLName").addEventListener("input", fetchTemplate(tetrisType));
+document.getElementById("fieldDate").addEventListener("input", fetchTemplate(tetrisType));
 
-fetchTemplate();
+fetchTemplate(tetrisType);
