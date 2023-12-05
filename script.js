@@ -1,11 +1,3 @@
-//function updateText() {
-//    var fieldAValue = document.getElementById("fieldA").value;
-//    var fieldBValue = document.getElementById("fieldB").value;
-//    document.getElementById("output").innerText = `HELLO ${fieldAValue} YOU ARE ${fieldBValue}`;
-//}
-
-
-// Function to fetch the template from the text file
 function fetchTemplate() {
     var xhr = new XMLHttpRequest();
     xhr.onreadystatechange = function() {
@@ -18,28 +10,40 @@ function fetchTemplate() {
     xhr.send();
 }
 
-// Function to update the text based on input fields
 function updateText(template) {
     var fieldLocationVal = document.getElementById("fieldLocation").value;
     var fieldFNameVal = document.getElementById("fieldFName").value;
     var fieldLNameVal = document.getElementById("fieldLName").value;
     var fieldDateVal = document.getElementById("fieldDate").value;
 
-    // Replace placeholders with actual values
     var result = template.replace('${txtLocation}', fieldLocationVal).replace('${txtFName}', fieldFNameVal).replace('${txtLName}', fieldLNameVal).replace('${txtDate}', fieldDateVal);
     var parser = new DOMParser();
     var doc = parser.parseFromString(result, "image/svg+xml");
     var svgElement = doc.documentElement;
 
     var svgContainer = document.getElementById("svgOutput");
-    svgContainer.innerHTML = ''; // Clear existing content
-    svgContainer.appendChild(svgElement); // Append the new SVG
+    svgContainer.innerHTML = '';
+    svgContainer.appendChild(svgElement);
     
-    // document.getElementById("svgOutput").innerText = result;
     document.getElementById("output").innerText = result;
 }
 
-// Add event listeners to the input fields
+function downloadSVG() {
+    var svgElement = document.getElementById("svgOutput").innerHTML;
+    var blob = new Blob([svgElement], {type: "image/svg+xml"});
+    var url = URL.createObjectURL(blob);
+
+    var downloadLink = document.createElement("a");
+    downloadLink.href = url;
+    downloadLink.download = "tetris.svg";
+    document.body.appendChild(downloadLink);
+    downloadLink.click();
+    document.body.removeChild(downloadLink);
+    URL.revokeObjectURL(url);
+}
+
+document.getElementById("downloadBtn").addEventListener("click", downloadSVG);
+
 document.getElementById("fieldLocation").addEventListener("input", function() {
     fetchTemplate();
 });
@@ -53,5 +57,4 @@ document.getElementById("fieldDate").addEventListener("input", function() {
     fetchTemplate();
 });
 
-// Initial call to fetch the template
 fetchTemplate();
