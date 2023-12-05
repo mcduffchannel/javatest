@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='utf-8'?>
+<svg width="40mm" height="40mm" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+<title>Tetris - O</title>
+
+<!-- outline -->
+<g id="p-0" style="fill:none; stroke-linecap:round; stroke-linejoin:round; stroke:rgb(0,0,0); stroke-width:0.2">	
+	<path d="M 0,0 L 40,0 L 40,40 L 0,40 Z"/>
+</g>
+
+<!-- details -->
+<g id="p-1" style="fill:none; stroke-linecap:round; stroke-linejoin:round; stroke:rgb(0,0,255); stroke-width:0.2">
+	<path d="M 20,0 L 20,40 M 0,20 L 40,20
+		M 0,0 L 2.5,2.5 L 17.5,2.5 L 20,0
+		M 17.5,2.5 L 17.5,17.5 L 20,20
+		M 17.5,17.5 L 2.5,17.5 L 0,20
+		M 2.5,17.5 L 2.5,2.5
+		M 0,20 L 2.5,22.5 L 17.5,22.5 L 20,20
+		M 17.5,22.5 L 17.5,37.5 L 20,40
+		M 17.5,37.5 L 2.5,37.5 L 0,40
+		M 2.5,37.5 L 2.5,22.5
+		M 20,20 L 22.5,22.5 L 37.5,22.5 L 40,20
+		M 37.5,22.5 L 37.5,37.5 L 40,40
+		M 37.5,37.5 L 22.5,37.5 L 20,40
+		M 22.5,37.5 L 22.5,22.5
+		M 20,0 L22.5,2.5 L 37.5,2.5 L 40,0
+		M 37.5,2.5 L 37.5,17.5 L 40,20
+		M 37.5,17.5 L 22.5,17.5 L 20,20
+		M 22.5,17.5 L 22.5,2.5"		/>
+</g>
+
+<!-- text -->
+<g id="p-2" style="fill:rgb(0,255,0); stroke-linecap:round; stroke-linejoin:round;
+					font-weight:bold; font-family:sans-serif; font-style:normal;
+					font-size:2.5px; text-anchor:middle; dominant-baseline:middle">
+	<text transform="matrix( 0.7071 -0.7071 0.7071 0.7071 10 10 )">${txtLocation}</text>	
+	<text transform="matrix( 0.7071 -0.7071 0.7071 0.7071 10 30 )">${txtFName}</text>
+	<text transform="matrix( 0.7071 -0.7071 0.7071 0.7071 30 30 )">${txtLName}</text>
+	<text transform="matrix( 0.7071 -0.7071 0.7071 0.7071 30 10 )">${txtDate}</text>
+</g>
+</svg>
