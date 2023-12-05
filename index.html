@@ -2,6 +2,21 @@
 <html>
 <head>
     <title>Dynamic Text Update</title>
+    <style>
+        table {
+            border-collapse: collapse; /* Removes the space between table borders */
+        }
+        td {
+            padding: 0; /* Zero padding */
+            border: 0; /* Zero border thickness */
+        }
+        .align-right {
+            text-align: right; /* Align text to the right */
+        }
+        .align-left {
+            text-align: left; /* Align text to the left */
+        }
+    </style>
 </head>
 <body>
     <font face="Arial">
@@ -16,7 +31,27 @@
 
     <label for="fieldDate">Date:</label>
     <input type="text" id="fieldDate" oninput="updateText()"><br><br>
-
+    
+    <table>
+        <tr>
+            <td class="align-right">Cell 1</td>
+            <td class="align-left">Cell 2</td>
+        </tr>
+        <tr>
+            <td class="align-right">Cell 3</td>
+            <td class="align-left">Cell 4</td>
+        </tr>
+        <tr>
+            <td class="align-right">Cell 5</td>
+            <td class="align-left">Cell 6</td>
+        </tr>
+        <tr>
+            <td class="align-right">Cell 7</td>
+            <td class="align-left">Cell 8</td>
+        </tr>
+    </table>
+    <br><br>
+        
     <label for="selection">Choose a Type:</label>
     <button id="oBtn" style="width: 30px;">O</button>
     <button id="iBtn" style="width: 30px;">I</button>
