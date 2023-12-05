@@ -1,4 +1,4 @@
-var tetrisType = "J"
+var tetrisType = "O"
 
 function fetchTemplate() {
     var xhr = new XMLHttpRequest();
@@ -58,17 +58,9 @@ document.getElementById("downloadBtn").addEventListener("click", downloadSVG);
 //document.getElementById("jBtn").addEventListener("click", downloadSVG);
 //document.getElementById("tBtn").addEventListener("click", downloadSVG);
 
-document.getElementById("fieldLocation").addEventListener("input", function() {
-    fetchTemplate();
-});
-document.getElementById("fieldFName").addEventListener("input", function() {
-    fetchTemplate();
-});
-document.getElementById("fieldLName").addEventListener("input", function() {
-    fetchTemplate();
-});
-document.getElementById("fieldDate").addEventListener("input", function() {
-    fetchTemplate();
-});
+document.getElementById("fieldLocation").addEventListener("input", fetchTemplate);
+document.getElementById("fieldFName").addEventListener("input", fetchTemplate);
+document.getElementById("fieldLName").addEventListener("input", fetchTemplate);
+document.getElementById("fieldDate").addEventListener("input", fetchTemplate);
 
 fetchTemplate();
