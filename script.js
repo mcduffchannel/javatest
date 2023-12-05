@@ -52,15 +52,15 @@ function downloadSVG() {
     URL.revokeObjectURL(url);
 }
 
-var tetrisType = "assets/test.txt";
+var tetrisType = "assets/Tetris-J.svg";
 
 document.getElementById("downloadBtn").addEventListener("click", downloadSVG);
-document.getElementById("oBtn").addEventListener("click", function() { tetrisType = "assets/test.txt"; fetchTemplate(tetrisType); });
+document.getElementById("oBtn").addEventListener("click", function() { tetrisType = "assets/Tetris-O.svg"; fetchTemplate(tetrisType); });
 document.getElementById("iBtn").addEventListener("click", function() { tetrisType = "assets/test.txt"; fetchTemplate(tetrisType); });
 document.getElementById("sBtn").addEventListener("click", function() { tetrisType = "assets/test.txt"; fetchTemplate(tetrisType); });
 document.getElementById("zBtn").addEventListener("click", function() { tetrisType = "assets/test.txt"; fetchTemplate(tetrisType); });
 document.getElementById("lBtn").addEventListener("click", function() { tetrisType = "assets/test.txt"; fetchTemplate(tetrisType); });
-document.getElementById("jBtn").addEventListener("click", function() { tetrisType = "assets/test.txt"; fetchTemplate(tetrisType); });
+document.getElementById("jBtn").addEventListener("click", function() { tetrisType = "assets/Tetris-J.svg"; fetchTemplate(tetrisType); });
 document.getElementById("tBtn").addEventListener("click", function() { tetrisType = "assets/test.txt"; fetchTemplate(tetrisType); });
 
 document.getElementById("fieldLocation").addEventListener("input", () => fetchTemplate(tetrisType));
