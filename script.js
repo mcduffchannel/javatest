@@ -52,7 +52,7 @@ function downloadSVG() {
     URL.revokeObjectURL(url);
 }
 
-var tetrisType = "assets/test.txt"
+var tetrisType = "assets/test.txt";
 
 document.getElementById("downloadBtn").addEventListener("click", downloadSVG);
 //document.getElementById("oBtn").addEventListener("click", function() { tetrisType = "assets/test.txt"; fetchTemplate(tetrisType); });
