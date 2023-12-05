@@ -18,7 +18,12 @@ function updateText(template) {
     var fieldLNameVal = document.getElementById("fieldLName").value;
     var fieldDateVal = document.getElementById("fieldDate").value;
 
-    var result = template.replace('${txtLocation}', fieldLocationVal).replace('${txtFName}', fieldFNameVal).replace('${txtLName}', fieldLNameVal).replace('${txtDate}', fieldDateVal);
+    var result = template;
+    result = result.replace('${txtLocation}', fieldLocationVal);
+    result = result.replace('${txtFName}', fieldFNameVal);
+    result = result.replace('${txtLName}', fieldLNameVal);
+    result = result.replace('${txtDate}', fieldDateVal);
+    
     var parser = new DOMParser();
     var doc = parser.parseFromString(result, "image/svg+xml");
     var svgElement = doc.documentElement;
