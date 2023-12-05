@@ -1,3 +1,5 @@
+var tetrisType = "J"
+
 function fetchTemplate() {
     var xhr = new XMLHttpRequest();
     xhr.onreadystatechange = function() {
@@ -28,14 +30,19 @@ function updateText(template) {
     document.getElementById("output").innerText = result;
 }
 
+function updateSelectedType() {
+    tetrisType = document.getElementById("selection").value;
+}
+
 function downloadSVG() {
     var svgElement = document.getElementById("svgOutput").innerHTML;
     var blob = new Blob([svgElement], {type: "image/svg+xml"});
     var url = URL.createObjectURL(blob);
 
     var downloadLink = document.createElement("a");
+    var fileName = fieldFName + "-" + fieldLName + "_tetris.svg"
     downloadLink.href = url;
-    downloadLink.download = "tetris.svg";
+    downloadLink.download = fileName;
     document.body.appendChild(downloadLink);
     downloadLink.click();
     document.body.removeChild(downloadLink);
@@ -43,6 +50,13 @@ function downloadSVG() {
 }
 
 document.getElementById("downloadBtn").addEventListener("click", downloadSVG);
+//document.getElementById("oBtn").addEventListener("click", downloadSVG);
+//document.getElementById("iBtn").addEventListener("click", downloadSVG);
+//document.getElementById("sBtn").addEventListener("click", downloadSVG);
+//document.getElementById("zBtn").addEventListener("click", downloadSVG);
+//document.getElementById("lBtn").addEventListener("click", downloadSVG);
+//document.getElementById("jBtn").addEventListener("click", downloadSVG);
+//document.getElementById("tBtn").addEventListener("click", downloadSVG);
 
 document.getElementById("fieldLocation").addEventListener("input", function() {
     fetchTemplate();
