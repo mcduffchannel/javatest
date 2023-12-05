@@ -55,13 +55,13 @@ function downloadSVG() {
 var tetrisType = "assets/test.txt";
 
 document.getElementById("downloadBtn").addEventListener("click", downloadSVG);
-//document.getElementById("oBtn").addEventListener("click", function() { tetrisType = "assets/test.txt"; fetchTemplate(tetrisType); });
-//document.getElementById("iBtn").addEventListener("click", function() { tetrisType = "assets/test.txt"; fetchTemplate(tetrisType); });
-//document.getElementById("sBtn").addEventListener("click", function() { tetrisType = "assets/test.txt"; fetchTemplate(tetrisType); });
-//document.getElementById("zBtn").addEventListener("click", function() { tetrisType = "assets/test.txt"; fetchTemplate(tetrisType); });
-//document.getElementById("lBtn").addEventListener("click", function() { tetrisType = "assets/test.txt"; fetchTemplate(tetrisType); });
-//document.getElementById("jBtn").addEventListener("click", function() { tetrisType = "assets/test.txt"; fetchTemplate(tetrisType); });
-//document.getElementById("tBtn").addEventListener("click", function() { tetrisType = "assets/test.txt"; fetchTemplate(tetrisType); });
+document.getElementById("oBtn").addEventListener("click", function() { tetrisType = "assets/test.txt"; fetchTemplate(tetrisType); });
+document.getElementById("iBtn").addEventListener("click", function() { tetrisType = "assets/test.txt"; fetchTemplate(tetrisType); });
+document.getElementById("sBtn").addEventListener("click", function() { tetrisType = "assets/test.txt"; fetchTemplate(tetrisType); });
+document.getElementById("zBtn").addEventListener("click", function() { tetrisType = "assets/test.txt"; fetchTemplate(tetrisType); });
+document.getElementById("lBtn").addEventListener("click", function() { tetrisType = "assets/test.txt"; fetchTemplate(tetrisType); });
+document.getElementById("jBtn").addEventListener("click", function() { tetrisType = "assets/test.txt"; fetchTemplate(tetrisType); });
+document.getElementById("tBtn").addEventListener("click", function() { tetrisType = "assets/test.txt"; fetchTemplate(tetrisType); });
 
 document.getElementById("fieldLocation").addEventListener("input", () => fetchTemplate(tetrisType));
 document.getElementById("fieldFName").addEventListener("input", () => fetchTemplate(tetrisType));
