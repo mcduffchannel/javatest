@@ -63,9 +63,9 @@ document.getElementById("downloadBtn").addEventListener("click", downloadSVG);
 //document.getElementById("jBtn").addEventListener("click", function() { tetrisType = "assets/test.txt"; fetchTemplate(tetrisType); });
 //document.getElementById("tBtn").addEventListener("click", function() { tetrisType = "assets/test.txt"; fetchTemplate(tetrisType); });
 
-document.getElementById("fieldLocation").addEventListener("input", fetchTemplate(tetrisType));
-document.getElementById("fieldFName").addEventListener("input", fetchTemplate(tetrisType));
-document.getElementById("fieldLName").addEventListener("input", fetchTemplate(tetrisType));
-document.getElementById("fieldDate").addEventListener("input", fetchTemplate(tetrisType));
+document.getElementById("fieldLocation").addEventListener("input", () => fetchTemplate(tetrisType));
+document.getElementById("fieldFName").addEventListener("input", () => fetchTemplate(tetrisType));
+document.getElementById("fieldLName").addEventListener("input", () => fetchTemplate(tetrisType));
+document.getElementById("fieldDate").addEventListener("input", () => fetchTemplate(tetrisType));
 
 fetchTemplate(tetrisType);
