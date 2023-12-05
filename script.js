@@ -21,7 +21,7 @@ function updateText(template, rotPos) {
     result = result.replace('${txtFName}', fieldFNameVal);
     result = result.replace('${txtLName}', fieldLNameVal);
     result = result.replace('${txtDate}', fieldDateVal);
-    result = result.replace('${txtPos}', rotPos);
+    result = result.replaceAll('${txtPos}', rotPos);
     
     var parser = new DOMParser();
     var doc = parser.parseFromString(result, "image/svg+xml");
