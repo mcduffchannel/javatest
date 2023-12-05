@@ -27,6 +27,7 @@ function updateText(template) {
 
     // Replace placeholders with actual values
     var result = template.replace('${txtLocation}', fieldLocationVal).replace('${txtFName}', fieldFNameVal).replace('${txtLName}', fieldLNameVal).replace('${txtDate}', fieldDateVal);
+    document.getElementById("svgOutput").innerText = result;
     document.getElementById("output").innerText = result;
 }
 
