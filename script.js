@@ -43,7 +43,7 @@ function downloadSVG() {
     var url = URL.createObjectURL(blob);
 
     var downloadLink = document.createElement("a");
-    var fileName = fieldFName + "-" + fieldLName + "_tetris.svg"
+    var fileName = "tetris.svg"
     downloadLink.href = url;
     downloadLink.download = fileName;
     document.body.appendChild(downloadLink);
