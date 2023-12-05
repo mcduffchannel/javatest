@@ -17,6 +17,17 @@
     <label for="fieldDate">Date:</label>
     <input type="text" id="fieldDate" oninput="updateText()"><br><br>
 
+    <label for="selection">Choose a Type:</label>
+    <select id="selection" onchange="updateSelectedType()">
+        <option value="O">O</option>
+        <option value="I">I</option>
+        <option value="S">S</option>
+        <option value="Z">Z</option>
+        <option value="L">L</option>
+        <option value="J">J</option>
+        <option value="T">T</option>
+    </select><br><br>
+
     <div id="svgOutput"></div>
     <br><br>
     <button id="downloadBtn">Download SVG</button>
