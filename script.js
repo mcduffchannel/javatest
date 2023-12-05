@@ -27,7 +27,15 @@ function updateText(template) {
 
     // Replace placeholders with actual values
     var result = template.replace('${txtLocation}', fieldLocationVal).replace('${txtFName}', fieldFNameVal).replace('${txtLName}', fieldLNameVal).replace('${txtDate}', fieldDateVal);
-    document.getElementById("svgOutput").innerText = result;
+    var parser = new DOMParser();
+    var doc = parser.parseFromString(result, "image/svg+xml");
+    var svgElement = doc.documentElement;
+
+    var svgContainer = document.getElementById("svgOutput");
+    svgContainer.innerHTML = ''; // Clear existing content
+    svgContainer.appendChild(svgElement); // Append the new SVG
+    
+    // document.getElementById("svgOutput").innerText = result;
     document.getElementById("output").innerText = result;
 }
 
