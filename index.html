@@ -4,20 +4,20 @@
     <title>Dynamic Text Update</title>
     <style>
         table {
-            border-collapse: collapse; /* Removes the space between table borders */
+            border-collapse: collapse;
         }
         td {
-            padding: 0; /* Zero padding */
-            border: 0; /* Zero border thickness */
+            padding: 5px; border: 0;
         }
         .align-right {
-            text-align: right; /* Align text to the right */
+            text-align: right;
         }
         .align-left {
-            text-align: left; /* Align text to the left */
+            text-align: left;
         }
     </style>
 </head>
+    
 <body>
     <font face="Arial">  
     <table>
@@ -37,23 +37,25 @@
             <td class="align-right"><label for="fieldDate">Date:</label></td>
             <td class="align-left"><input type="text" id="fieldDate" oninput="updateText()"></td>
         </tr>
+        <tr>
+            <td class="align-right"><label for="selection">Choose a Type:</label></td>
+            <td class="align-left">
+                <button id="oBtn" style="width: 30px;">O</button>
+                <button id="iBtn" style="width: 30px;">I</button>
+                <button id="sBtn" style="width: 30px;">S</button>
+                <button id="zBtn" style="width: 30px;">Z</button>
+                <button id="lBtn" style="width: 30px;">L</button>
+                <button id="jBtn" style="width: 30px;">J</button>
+                <button id="tBtn" style="width: 30px;">T</button>
+            </td>
+        </tr>
     </table>
-    <br><br>
-    <label for="selection">Choose a Type:</label>
-    <button id="oBtn" style="width: 30px;">O</button>
-    <button id="iBtn" style="width: 30px;">I</button>
-    <button id="sBtn" style="width: 30px;">S</button>
-    <button id="zBtn" style="width: 30px;">Z</button>
-    <button id="lBtn" style="width: 30px;">L</button>
-    <button id="jBtn" style="width: 30px;">J</button>
-    <button id="tBtn" style="width: 30px;">T</button>
-    <br><br>
-        
+    <br><br>    
     <div id="svgOutput"></div>
     <br><br>
     <button id="downloadBtn">Download SVG</button>
     <br><br>
-    <p id="output">LETS Gooooo</p>
+    <p id="output">Loading...</p>
     </font>
     <script src="script.js"></script>
     
