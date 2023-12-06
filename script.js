@@ -53,17 +53,62 @@ function downloadSVG() {
     URL.revokeObjectURL(url);
 }
 
+function enableButtons(svgContent) {
+    document.getElementById("rotABtn").disabled = false;
+    document.getElementById("rotBBtn").disabled = false;
+    document.getElementById("rotCBtn").disabled = false;
+    document.getElementById("rotDBtn").disabled = false;
+}
+
 var tetrisType = "assets/Tetris-J.svg";
 var rotPos = "0.7071 -0.7071 0.7071 0.7071"
 
 document.getElementById("downloadBtn").addEventListener("click", downloadSVG);
-document.getElementById("oBtn").addEventListener("click", function() { tetrisType = "assets/Tetris-O.svg"; fetchTemplate(tetrisType, rotPos); });
-document.getElementById("iBtn").addEventListener("click", function() { tetrisType = "assets/test.txt"; fetchTemplate(tetrisType, rotPos); });
-document.getElementById("sBtn").addEventListener("click", function() { tetrisType = "assets/test.txt"; fetchTemplate(tetrisType, rotPos); });
-document.getElementById("zBtn").addEventListener("click", function() { tetrisType = "assets/test.txt"; fetchTemplate(tetrisType, rotPos); });
-document.getElementById("lBtn").addEventListener("click", function() { tetrisType = "assets/test.txt"; fetchTemplate(tetrisType, rotPos); });
-document.getElementById("jBtn").addEventListener("click", function() { tetrisType = "assets/Tetris-J.svg"; fetchTemplate(tetrisType, rotPos); });
-document.getElementById("tBtn").addEventListener("click", function() { tetrisType = "assets/test.txt"; fetchTemplate(tetrisType, rotPos); });
+document.getElementById("oBtn").addEventListener("click", function() { 
+    enableButtons();
+    document.getElementById("rotABtn").disabled = true;
+    document.getElementById("rotBBtn").disabled = true;
+    document.getElementById("rotCBtn").disabled = true;
+    document.getElementById("rotDBtn").disabled = true;
+    tetrisType = "assets/Tetris-O.svg";
+    fetchTemplate(tetrisType, rotPos);
+});
+document.getElementById("iBtn").addEventListener("click", function() {
+    enableButtons();
+    document.getElementById("rotABtn").disabled = true;
+    document.getElementById("rotBBtn").disabled = true;
+    tetrisType = "assets/test.txt";
+    fetchTemplate(tetrisType, rotPos);
+});
+document.getElementById("sBtn").addEventListener("click", function() {
+    enableButtons();
+    document.getElementById("rotABtn").disabled = true;
+    document.getElementById("rotBBtn").disabled = true;
+    tetrisType = "assets/test.txt";
+    fetchTemplate(tetrisType, rotPos);
+});
+document.getElementById("zBtn").addEventListener("click", function() {
+    enableButtons();
+    document.getElementById("rotABtn").disabled = true;
+    document.getElementById("rotBBtn").disabled = true;
+    tetrisType = "assets/test.txt";
+    fetchTemplate(tetrisType, rotPos);
+});
+document.getElementById("lBtn").addEventListener("click", function() {
+    enableButtons();
+    tetrisType = "assets/test.txt";
+    fetchTemplate(tetrisType, rotPos);
+});
+document.getElementById("jBtn").addEventListener("click", function() {
+    enableButtons();
+    tetrisType = "assets/Tetris-J.svg";
+    fetchTemplate(tetrisType, rotPos);
+});
+document.getElementById("tBtn").addEventListener("click", function() {
+    enableButtons();
+    tetrisType = "assets/test.txt";
+    fetchTemplate(tetrisType, rotPos);
+});
 
 document.getElementById("rotABtn").addEventListener("click", function() { rotPos = "0.7071 -0.7071 0.7071 0.7071"; fetchTemplate(tetrisType, rotPos); });
 document.getElementById("rotBBtn").addEventListener("click", function() { rotPos = "0.7071 0.7071 -0.7071 0.7071"; fetchTemplate(tetrisType, rotPos); });
