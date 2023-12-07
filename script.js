@@ -1,21 +1,20 @@
 const tetrisDem = 20;
+
 const detailIndex = "M,0,0 L,2.5,2.5 L,17.5,2.5 L,20,0 M,17.5,2.5 L,17.5,17.5 L,20,20 M,17.5,17.5 L,2.5,17.5 L,0,20 M,2.5,17.5 L,2.5,2.5";
 const detailList = detailIndex.split(" ");
-console.log(detailList);
 
 const layoutIndex = "1,1 2,1 1,2 2,2:1,1 1,2 1,3 1,4:1,1 2,1 3,1 4,1:2,1 3,1 1,2 2,2:1,1 1,2 2,2 2,3:1,1 2,1 2,2 3,2:2,1 2,2 1,2 1,3:1,1 1,2 1,3 2,3:1,2 1,1 2,1 3,1:1,1 2,1 2,2 2,3:1,2 2,2 3,2 3,1:2,1 2,2 2,3 1,3:1,1 1,2 2,2 3,2:2,1 1,1 1,2 1,3:1,1 2,1 3,1 3,2:1,1 2,1 3,1 2,2:1,2 2,1 2,2 2,3:2,1 1,2 2,2 3,2:1,1 1,2 1,3 2,2";
 const layoutList = layoutIndex.split(":");
-console.log(layoutList);
 
 const labelIndex = "A,C,D,B A,B,C,D A,B,C,D A,C,D,B A,B,C,D A,C,D,B A,B,C,D A,B,C,D A,B,C,D C,A,B,D D,A,B,C A,B,D,C A,B,C,D C,B,A,D A,B,C,D A,B,C,D B,A,C,D A,B,C,D A,B,D,C";
 const labelList = labelIndex.split(" ");
-console.log(labelIndex);
 
 
 function evalLayout(tetrisIndex) {
-    var detailOutput = ""
-    var labelOutput = ""
-
+    var labelXY = [];
+    var detailOutput = "";
+    var demWH = [0, 0];
+    
     var coordinates = layoutList[tetrisIndex].split(" ").map(pair => {
         const [x, y] = pair.split(",");
         return [parseFloat(x) - 1, parseFloat(y) - 1];
@@ -23,19 +22,27 @@ function evalLayout(tetrisIndex) {
 
     for (let i = 0; i < coordinates.length; i++) {
         const [x , y] = coordinates[i];
-       
+
+        if (x > demWH[0]) {
+            demWH[0] = x;
+        }
+
+        if (y > demWH[1]) {
+            demWH[1] = y;
+        }
+        
         switch (labelList[tetrisIndex].split(",")[i]) {
             case "A":
-                console.log("A " + ((x * tetrisDem) + (tetrisDem / 2)) + "|" + ((y * tetrisDem) + (tetrisDem / 2)));
+                labelXY.push("A " + ((x * tetrisDem) + (tetrisDem / 2)) + " " + ((y * tetrisDem) + (tetrisDem / 2)));
                     break;
             case "B":
-                console.log("B " + ((x * tetrisDem) + (tetrisDem / 2)) + "|" + ((y * tetrisDem) + (tetrisDem / 2)));
+                labelXY.push("B " + ((x * tetrisDem) + (tetrisDem / 2)) + " " + ((y * tetrisDem) + (tetrisDem / 2)));
                     break;
             case "C":
-                console.log("C " + ((x * tetrisDem) + (tetrisDem / 2)) + "|" + ((y * tetrisDem) + (tetrisDem / 2)));
+                labelXY.push("C " + ((x * tetrisDem) + (tetrisDem / 2)) + " " + ((y * tetrisDem) + (tetrisDem / 2)));
                     break;
             case "D":
-                console.log("D " + ((x * tetrisDem) + (tetrisDem / 2)) + "|" + ((y * tetrisDem) + (tetrisDem / 2)));
+                labelXY.push("D " + ((x * tetrisDem) + (tetrisDem / 2)) + " " + ((y * tetrisDem) + (tetrisDem / 2)));
                     break;
         }
         
@@ -45,6 +52,8 @@ function evalLayout(tetrisIndex) {
             detailOutput = detailOutput + a + " " + ((tetrisDem * x) + Number(b)) + "," + ((tetrisDem * y) + Number(c)) + " ";            
         };
     };
+    console.log(demWH);
+    console.log(labelXY);
     console.log(detailOutput);
 };
 
