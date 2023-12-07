@@ -1,9 +1,4 @@
-public class GlobalData {
-    public static detailPoints = "M,0,0 L,2.5,2.5 L,17.5,2.5 L,20,0 M,17.5,2.5 L,17.5,17.5 L,20,20 M,17.5,17.5 L,2.5,17.5 L,0,20 M,2.5,17.5 L,2.5,2.5";
-    public static tetrisDem = 20;
-    public layout = "1,1 2,1 1,2 2,2";
 
-}
 
 function fetchTemplate(loadType, rotPos) {
     var xhr = new XMLHttpRequest();
@@ -67,16 +62,21 @@ function enableButtons(svgContent) {
     document.getElementById("rotDBtn").disabled = false;
 }
 
-function expandPoints(points, dem) {
-    
-}
+//function expandPoints(points, dem) {}
+
+const detailPoints = "M,0,0 L,2.5,2.5 L,17.5,2.5 L,20,0 M,17.5,2.5 L,17.5,17.5 L,20,20 M,17.5,17.5 L,2.5,17.5 L,0,20 M,2.5,17.5 L,2.5,2.5";
+const tetrisDem = 20;
+
+var layout = "1,1 2,1 1,2 2,2";
 
 function evalLayout() {
-    String[] xyLayouts = GlobalData.layout.split(" ");
-    for (String coord : xyLayouts) {
-        System.out.println(coord);
-    }
+    var coordinates = layout.split(" ").map(pair => {
+        const [x, y] = pair.split(",");
+        return [parseFloat(x), parseFloat(y)];
+    });
+    console.log(coordinates);
 }
+
 
 
 var tetrisType = "assets/Tetris-J.svg";
