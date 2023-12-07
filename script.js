@@ -176,8 +176,7 @@ function updateText(template, tetrisTypeIndex) {
     result = result.replace('${txtFName}', fieldFNameVal);
     result = result.replace('${txtLName}', fieldLNameVal);
     result = result.replace('${txtDate}', fieldDateVal);
-    
-    
+        
     var parser = new DOMParser();
     var doc = parser.parseFromString(result, "image/svg+xml");
     var svgElement = doc.documentElement;
@@ -204,24 +203,36 @@ function downloadSVG() {
     URL.revokeObjectURL(url);
 }
 
-function enableButtons(svgContent) {
+function enableButtons() {
     document.getElementById("rotABtn").disabled = false;
     document.getElementById("rotBBtn").disabled = false;
     document.getElementById("rotCBtn").disabled = false;
     document.getElementById("rotDBtn").disabled = false;
 }
 
-var tetrisType = "O";
-var rotPos = "A";
-
-document.getElementById("downloadBtn").addEventListener("click", downloadSVG);
-document.getElementById("oBtn").addEventListener("click", function() { 
-    rotPos = "A";
-    tetrisType = "O";
+function disableButtons() {
     document.getElementById("rotABtn").disabled = true;
     document.getElementById("rotBBtn").disabled = true;
     document.getElementById("rotCBtn").disabled = true;
     document.getElementById("rotDBtn").disabled = true;
+}
+
+function disableTwoButtons() {
+    document.getElementById("rotCBtn").disabled = true;
+    document.getElementById("rotDBtn").disabled = true;
+}
+
+
+disableButtons()
+var tetrisType = "O";
+var rotPos = "A";
+
+document.getElementById("downloadBtn").addEventListener("click", downloadSVG);
+
+document.getElementById("oBtn").addEventListener("click", function() { 
+    rotPos = "A";
+    tetrisType = "O";
+    disableButtons();
     fetchTemplate(tetrisType, rotPos);
 });
 
@@ -229,24 +240,21 @@ document.getElementById("iBtn").addEventListener("click", function() {
     rotPos = "A";
     tetrisType = "I";
     enableButtons();
-    document.getElementById("rotCBtn").disabled = true;
-    document.getElementById("rotDBtn").disabled = true;
+    disableTwoButtons();
     fetchTemplate(tetrisType, rotPos);
 });
 document.getElementById("sBtn").addEventListener("click", function() {
     rotPos = "A";
     tetrisType = "S";
     enableButtons();
-    document.getElementById("rotCBtn").disabled = true;
-    document.getElementById("rotDBtn").disabled = true;
+    disableTwoButtons();
     fetchTemplate(tetrisType, rotPos);
 });
 document.getElementById("zBtn").addEventListener("click", function() {
     rotPos = "A";
     tetrisType = "Z";
     enableButtons();
-    document.getElementById("rotCBtn").disabled = true;
-    document.getElementById("rotDBtn").disabled = true;
+    disableTwoButtons();
     fetchTemplate(tetrisType, rotPos);
 });
 document.getElementById("lBtn").addEventListener("click", function() {
