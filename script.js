@@ -23,10 +23,8 @@ function evalLayout(tetrisIndex) {
 
     for (let i = 0; i < coordinates.length; i++) {
         const [x , y] = coordinates[i];
-
-        console.log(layoutList[tetrisIndex].split(",")[i]);
-        
-        switch (layoutList[tetrisIndex].split(",")[i]) {
+       
+        switch (labelList[tetrisIndex].split(",")[i]) {
             case "A":
                 console.log("A " + x + "|" + y);
                     break;
