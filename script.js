@@ -1,9 +1,13 @@
 const tetrisDem = 20;
 
-const outlineIndexA = "0,0 2,0 2,2 0,2:0,0 1,0 1,4 0,4:0,0 4,0 4,1 0,1:0,1 1,1 1,0 3,0 3,1 2,1 2,2 0,2:0,0 1,0 1,1 2,1 2,3 1,3 1,2 0,2:0,0 2,0 2,1 3,1 3,2 1,2 1,1 0,1:1,0 2,0 2,2 1,2 1,3 0,3 0,1 1,1:";
-const outlineIndexB = "0,0 1,0 1,2 2,2 2,3 0,3:0,0 3,0 3,1 1,1 1,2 0,2:0,0 2,0 2,3 1,3 1,1 0,1:0,1 2,1 2,0 3,0 3,2 0,2:1,0 2,0 2,3 0,3 0,2 1,2:0,0 1,0 1,1 3,1 3,2 0,2:0,0 2,0 2,1 1,1 1,3 0,3:0,0 3,0 3,2 2,2 2,1 0,1:";
-const outlineIndexC = "0,0 3,0 3,1 2,1 2,2 1,2 1,1 0,1:1,0 2,0 2,3 1,3 1,2 0,2 0,1 1,1:1,0 2,0 2,1 3,1 3,2 0,2 0,1 1,1:0,0 1,0 1,1 2,1 2,2 1,2 1,3 0,3";
-const outlineIndex = outlineIndexA + outlineIndexB + outlineIndexC;
+const outlineO = "0,0 2,0 2,2 0,2:" ;
+const outlineI = "0,0 1,0 1,4 0,4:0,0 4,0 4,1 0,1:";
+const outlineS = "0,1 1,1 1,0 3,0 3,1 2,1 2,2 0,2:0,0 1,0 1,1 2,1 2,3 1,3 1,2 0,2:";
+const outlineZ = "0,0 2,0 2,1 3,1 3,2 1,2 1,1 0,1:1,0 2,0 2,2 1,2 1,3 0,3 0,1 1,1:";
+const outlineL = "0,0 1,0 1,2 2,2 2,3 0,3:0,0 3,0 3,1 1,1 1,2 0,2:0,0 2,0 2,3 1,3 1,1 0,1:0,1 2,1 2,0 3,0 3,2 0,2:";
+const outlineJ = "1,0 2,0 2,3 0,3 0,2 1,2:0,0 1,0 1,1 3,1 3,2 0,2:0,0 2,0 2,1 1,1 1,3 0,3:0,0 3,0 3,2 2,2 2,1 0,1:";
+const outlineT = "0,0 3,0 3,1 2,1 2,2 1,2 1,1 0,1:1,0 2,0 2,3 1,3 1,2 0,2 0,1 1,1:1,0 2,0 2,1 3,1 3,2 0,2 0,1 1,1:0,0 1,0 1,1 2,1 2,2 1,2 1,3 0,3";
+const outlineIndex = [outlineO, outlineI, outlineS, outlineZ, outlineL, outlineJ, outlineT].join("");
 const outlineList = outlineIndex.split(":");
 
 const divIndexA = "0,1 2,1 1,0 1,1 1,1 1,2:0,1 1,1 0,2 1,2 0,3 1,3:1,0 1,1 2,0 2,1 3,0 3,1:1,1 1,2 1,1 2,1 2,0 2,1:0,1 1,1 1,1 1,2 1,2 2,2:1,0 1,1 1,1 2,1 2,1 2,2:0,2 1,2 1,2 1,1 1,1 2,1:0,1 1,1 0,2 1,2 1,2 1,3:";
@@ -57,8 +61,6 @@ function evalLayout(tetrisIndex) {
     
     dividerOutput = dividerOutput + "Z";
 
-    console.log(dividerOutput)
-    
     var coordinates = layoutList[tetrisIndex].split(" ").map(pair => {
         const [x, y] = pair.split(",");
         return [parseFloat(x) - 1, parseFloat(y) - 1];
@@ -67,27 +69,14 @@ function evalLayout(tetrisIndex) {
     for (let i = 0; i < coordinates.length; i++) {
         const [x , y] = coordinates[i];
 
-        if (x > demWH[0]) {
-            demWH[0] = x;
-        }
-
-        if (y > demWH[1]) {
-            demWH[1] = y;
-        }
+        if (x > demWH[0]) { demWH[0] = x; };
+        if (y > demWH[1]) { demWH[1] = y; };
         
         switch (labelList[tetrisIndex].split(",")[i]) {
-            case "A":
-                labelXY.push(((x * tetrisDem) + (tetrisDem / 2)) + " " + ((y * tetrisDem) + (tetrisDem / 2)));
-                    break;
-            case "B":
-                labelXY.push(((x * tetrisDem) + (tetrisDem / 2)) + " " + ((y * tetrisDem) + (tetrisDem / 2)));
-                    break;
-            case "C":
-                labelXY.push(((x * tetrisDem) + (tetrisDem / 2)) + " " + ((y * tetrisDem) + (tetrisDem / 2)));
-                    break;
-            case "D":
-                labelXY.push(((x * tetrisDem) + (tetrisDem / 2)) + " " + ((y * tetrisDem) + (tetrisDem / 2)));
-                    break;
+            case "A": labelXY.push(((x * tetrisDem) + (tetrisDem / 2)) + " " + ((y * tetrisDem) + (tetrisDem / 2))); break;
+            case "B": labelXY.push(((x * tetrisDem) + (tetrisDem / 2)) + " " + ((y * tetrisDem) + (tetrisDem / 2))); break;
+            case "C": labelXY.push(((x * tetrisDem) + (tetrisDem / 2)) + " " + ((y * tetrisDem) + (tetrisDem / 2))); break;
+            case "D": labelXY.push(((x * tetrisDem) + (tetrisDem / 2)) + " " + ((y * tetrisDem) + (tetrisDem / 2))); break;
         }
         
         for (let z = 0; z < detailList.length; z ++) {
@@ -210,7 +199,7 @@ var rotPos = "A";
 
 document.getElementById("downloadBtn").addEventListener("click", downloadSVG);
 document.getElementById("oBtn").addEventListener("click", function() { 
-    rotPos = "A"
+    rotPos = "A";
     tetrisType = "O";
     document.getElementById("rotABtn").disabled = true;
     document.getElementById("rotBBtn").disabled = true;
@@ -220,7 +209,7 @@ document.getElementById("oBtn").addEventListener("click", function() {
 });
 
 document.getElementById("iBtn").addEventListener("click", function() {
-    rotPos = "A"
+    rotPos = "A";
     tetrisType = "I";
     enableButtons();
     document.getElementById("rotCBtn").disabled = true;
@@ -228,7 +217,7 @@ document.getElementById("iBtn").addEventListener("click", function() {
     fetchTemplate(tetrisType, rotPos);
 });
 document.getElementById("sBtn").addEventListener("click", function() {
-    rotPos = "A"
+    rotPos = "A";
     tetrisType = "S";
     enableButtons();
     document.getElementById("rotCBtn").disabled = true;
@@ -236,7 +225,7 @@ document.getElementById("sBtn").addEventListener("click", function() {
     fetchTemplate(tetrisType, rotPos);
 });
 document.getElementById("zBtn").addEventListener("click", function() {
-    rotPos = "A"
+    rotPos = "A";
     tetrisType = "Z";
     enableButtons();
     document.getElementById("rotCBtn").disabled = true;
@@ -244,19 +233,19 @@ document.getElementById("zBtn").addEventListener("click", function() {
     fetchTemplate(tetrisType, rotPos);
 });
 document.getElementById("lBtn").addEventListener("click", function() {
-    rotPos = "A"
+    rotPos = "A";
     tetrisType = "L";
     enableButtons();
     fetchTemplate(tetrisType, rotPos);
 });
 document.getElementById("jBtn").addEventListener("click", function() {
-    rotPos = "A"
+    rotPos = "A";
     tetrisType = "J";
     enableButtons();
     fetchTemplate(tetrisType, rotPos);
 });
 document.getElementById("tBtn").addEventListener("click", function() {
-    rotPos = "A"
+    rotPos = "A";
     tetrisType = "T";
     enableButtons();
     fetchTemplate(tetrisType, rotPos);
