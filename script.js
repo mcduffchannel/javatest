@@ -18,7 +18,7 @@ const labelList = labelIndex.split(" ");
 function evalLayout(tetrisIndex) {
     var labelXY = [];
     var detailOutput = "";
-    var outlineOutput = ""
+    var outlineOutput = "";
     var demWH = [0, 0];
 
     var olCoords = outlineList[tetrisIndex].split(" ").map(pair => {
@@ -29,6 +29,7 @@ function evalLayout(tetrisIndex) {
     for (let i = 0; i < olCoords.length; i++) {
         const [x , y] = olCoords[i];
         outlineOutput = outlineOutput + "L " + (tetrisDem * x) + "," + (tetrisDem * y) + " ";
+        console.log(outlineOutput);
     };
 
     outlineOutput = outlineOutput.replace("L", "M");
