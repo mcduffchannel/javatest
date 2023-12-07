@@ -68,15 +68,12 @@ function enableButtons(svgContent) {
 }
 
 //function expandPoints(points, dem) {}
-
-
-
-var layout = "1,1 2,1 1,2 2,2";
+//var layout = "1,1 2,1 1,2 2,2";
 
 function evalLayout() {
     var coordinates = layoutList[4].split(" ").map(pair => {
         const [x, y] = pair.split(",");
-        return [parseFloat(x-1), parseFloat(y-1)];
+        return [parseFloat(x) - 1, parseFloat(y) - 1];
     });
     
     console.log(coordinates);
@@ -87,7 +84,7 @@ function evalLayout() {
 var tetrisType = "assets/Tetris-J.svg";
 var rotPos = "A";
 
-evalLayout();
+evalLayout(layoutList[4]);
 
 document.getElementById("downloadBtn").addEventListener("click", downloadSVG);
 document.getElementById("oBtn").addEventListener("click", function() { 
