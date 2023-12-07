@@ -103,7 +103,7 @@ function evalLayout(tetrisIndex) {
     console.log(demWH);
     console.log(labelXY);
     console.log(detailOutput);
-    return { demWH, outlineOutput, dividerOutput, detailOutput, labelXY );
+    return { demWH, outlineOutput, dividerOutput, detailOutput, labelXY };
 };
 
 
