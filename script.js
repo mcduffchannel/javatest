@@ -52,6 +52,10 @@ function evalLayout(tetrisIndex) {
             detailOutput = detailOutput + a + " " + ((tetrisDem * x) + Number(b)) + "," + ((tetrisDem * y) + Number(c)) + " ";            
         };
     };
+
+    demWH[0] = (demWH[0] + 1) * tetrisDem
+    demWH[1] = (demWH[1] + 1) * tetrisDem
+    
     console.log(demWH);
     console.log(labelXY);
     console.log(detailOutput);
@@ -189,3 +193,4 @@ document.getElementById("fieldLName").addEventListener("input", () => fetchTempl
 document.getElementById("fieldDate").addEventListener("input", () => fetchTemplate(tetrisType, rotPos));
 
 fetchTemplate(tetrisType, rotPos);
+
