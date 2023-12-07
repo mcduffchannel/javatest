@@ -140,7 +140,7 @@ function fetchTemplate(loadType, rotPos) {
             updateText(this.responseText.trim(), tetrisTypeIndex);
         }
     };
-    xhr.open("GET", "asset/base.svg", true);
+    xhr.open("GET", "base.svg", true);
     xhr.send();
 }
 
