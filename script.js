@@ -26,7 +26,7 @@ function evalLayout(tetrisIndex) {
        
         switch (labelList[tetrisIndex].split(",")[i]) {
             case "A":
-                console.log("A " + x + "|" + y);
+                console.log("A " + ((x * tetrisDem) + (tetrisDem / 2)) + "|" + ((y * tetrisDem) + (tetrisDem / 2)));
                     break;
             case "B":
                 console.log("B " + x + "|" + y);
@@ -114,7 +114,7 @@ function enableButtons(svgContent) {
 var tetrisType = "assets/Tetris-J.svg";
 var rotPos = "A";
 
-evalLayout(4);
+evalLayout(3);
 
 document.getElementById("downloadBtn").addEventListener("click", downloadSVG);
 document.getElementById("oBtn").addEventListener("click", function() { 
