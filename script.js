@@ -1,4 +1,9 @@
+const tetrisDem = 20;
+const detailPoints = "M,0,0 L,2.5,2.5 L,17.5,2.5 L,20,0 M,17.5,2.5 L,17.5,17.5 L,20,20 M,17.5,17.5 L,2.5,17.5 L,0,20 M,2.5,17.5 L,2.5,2.5";
+const layoutIndex = "1,1 2,1 1,2 2,2:1,1 1,2 1,3 1,4:1,1 2,1 3,1 4,1:2,1 3,1 1,2 2,2:1,1 1,2 2,2 2,3:1,1 2,1 2,2 3,2:2,1 2,2 1,2 1,3:1,1 1,2 1,3 2,3:1,2 1,1 2,1 3,1:1,1 2,1 2,2 2,3:1,2 2,2 3,2 3,1:2,1 2,2 2,3 1,3:1,1 1,2 2,2 3,2:2,1 1,1 1,2 1,3:1,1 2,1 3,1 3,2:1,1 2,1 3,1 2,2:1,2 2,1 2,2 2,3:2,1 1,2 2,2 3,2:1,1 1,2 1,3 2,2";
+const layoutList = layoutIndex.split(":");
 
+console.log(layoutList);
 
 function fetchTemplate(loadType, rotPos) {
     var xhr = new XMLHttpRequest();
@@ -64,8 +69,7 @@ function enableButtons(svgContent) {
 
 //function expandPoints(points, dem) {}
 
-const detailPoints = "M,0,0 L,2.5,2.5 L,17.5,2.5 L,20,0 M,17.5,2.5 L,17.5,17.5 L,20,20 M,17.5,17.5 L,2.5,17.5 L,0,20 M,2.5,17.5 L,2.5,2.5";
-const tetrisDem = 20;
+
 
 var layout = "1,1 2,1 1,2 2,2";
 
@@ -74,6 +78,7 @@ function evalLayout() {
         const [x, y] = pair.split(",");
         return [parseFloat(x), parseFloat(y)];
     });
+    
     console.log(coordinates);
 }
 
