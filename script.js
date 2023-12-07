@@ -87,7 +87,7 @@ function evalLayout() {
             output = a + " " + (tetrisDem * b) + "," + (tetrisDem * c);
             console.log(output);            
         };
-    }:
+    };
 
 };
 
