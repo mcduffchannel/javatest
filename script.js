@@ -1,5 +1,6 @@
 const tetrisDem = 20;
-const detailPoints = "M,0,0 L,2.5,2.5 L,17.5,2.5 L,20,0 M,17.5,2.5 L,17.5,17.5 L,20,20 M,17.5,17.5 L,2.5,17.5 L,0,20 M,2.5,17.5 L,2.5,2.5";
+const detailIndex = "M,0,0 L,2.5,2.5 L,17.5,2.5 L,20,0 M,17.5,2.5 L,17.5,17.5 L,20,20 M,17.5,17.5 L,2.5,17.5 L,0,20 M,2.5,17.5 L,2.5,2.5";
+const detailList = detailIndex.split(" ");
 const layoutIndex = "1,1 2,1 1,2 2,2:1,1 1,2 1,3 1,4:1,1 2,1 3,1 4,1:2,1 3,1 1,2 2,2:1,1 1,2 2,2 2,3:1,1 2,1 2,2 3,2:2,1 2,2 1,2 1,3:1,1 1,2 1,3 2,3:1,2 1,1 2,1 3,1:1,1 2,1 2,2 2,3:1,2 2,2 3,2 3,1:2,1 2,2 2,3 1,3:1,1 1,2 2,2 3,2:2,1 1,1 1,2 1,3:1,1 2,1 3,1 3,2:1,1 2,1 3,1 2,2:1,2 2,1 2,2 2,3:2,1 1,2 2,2 3,2:1,1 1,2 1,3 2,2";
 const layoutList = layoutIndex.split(":");
 
@@ -67,16 +68,27 @@ function enableButtons(svgContent) {
     document.getElementById("rotDBtn").disabled = false;
 }
 
-//function expandPoints(points, dem) {}
-//var layout = "1,1 2,1 1,2 2,2";
+function expandPoints(points, dem) {
+    
+    
+};
 
 function evalLayout() {
+    var output = ""
     var coordinates = layoutList[4].split(" ").map(pair => {
         const [x, y] = pair.split(",");
         return [parseFloat(x) - 1, parseFloat(y) - 1];
     });
-    
-    console.log(coordinates);
+
+    for (let i = 0; i < coordinates.length; i++) {
+        const [x , y] = coordinates[i];
+        for (let z = 0; z < detailList.length; z ++) {
+            const [a, b, c] = detailList[z];
+            output = a + " " + (tetrisDem * b) + "," + (tetrisDem * c)
+            console.log(output);            
+        }
+    }:
+
 }
 
 
