@@ -7,6 +7,27 @@ const layoutIndex = "1,1 2,1 1,2 2,2:1,1 1,2 1,3 1,4:1,1 2,1 3,1 4,1:2,1 3,1 1,2
 const layoutList = layoutIndex.split(":");
 console.log(layoutList);
 
+
+function evalLayout() {
+    var output = ""
+    var coordinates = layoutList[4].split(" ").map(pair => {
+        const [x, y] = pair.split(",");
+        return [parseFloat(x) - 1, parseFloat(y) - 1];
+    });
+
+    for (let i = 0; i < coordinates.length; i++) {
+        const [x , y] = coordinates[i];
+        for (let z = 0; z < detailList.length; z ++) {
+            detailElement = detailList[z].split(",");            
+            const [a, b, c] = detailElement;
+            output = a + " " + ((tetrisDem * x) + Number(b)) + "," + ((tetrisDem * y) + Number(c));
+            console.log(output);            
+        };
+    };
+
+};
+
+
 function fetchTemplate(loadType, rotPos) {
     var xhr = new XMLHttpRequest();
     xhr.onreadystatechange = function() {
@@ -68,32 +89,6 @@ function enableButtons(svgContent) {
     document.getElementById("rotCBtn").disabled = false;
     document.getElementById("rotDBtn").disabled = false;
 }
-
-function expandPoints(points, dem) {
-    
-    
-};
-
-function evalLayout() {
-    var output = ""
-    var coordinates = layoutList[4].split(" ").map(pair => {
-        const [x, y] = pair.split(",");
-        return [parseFloat(x) - 1, parseFloat(y) - 1];
-    });
-
-    for (let i = 0; i < coordinates.length; i++) {
-        const [x , y] = coordinates[i];
-        for (let z = 0; z < detailList.length; z ++) {
-            detailElement = detailList[z].split(",");            
-            const [a, b, c] = detailElement;
-            output = a + " " + ((tetrisDem * x) + number(b)) + "," + ((tetrisDem * y) + number(c));
-            console.log(output);            
-        };
-    };
-
-};
-
-
 
 var tetrisType = "assets/Tetris-J.svg";
 var rotPos = "A";
