@@ -26,7 +26,7 @@ function evalLayout(tetrisIndex) {
     var labelXY = [];
     var detailOutput = "";
     var outlineOutput = "";
-    var dividerOuput = "";
+    var dividerOutput = "";
     var demWH = [0, 0];
 
     var olCoords = outlineList[tetrisIndex].split(" ").map(pair => {
