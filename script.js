@@ -84,12 +84,12 @@ function evalLayout() {
         const [x , y] = coordinates[i];
         for (let z = 0; z < detailList.length; z ++) {
             const [a, b, c] = detailList[z];
-            output = a + " " + (tetrisDem * b) + "," + (tetrisDem * c)
+            output = a + " " + (tetrisDem * b) + "," + (tetrisDem * c);
             console.log(output);            
-        }
+        };
     }:
 
-}
+};
 
 
 
