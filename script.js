@@ -51,8 +51,8 @@ function evalLayout(tetrisIndex) {
         const [x , y] = divCoords[i];
         dividerOutput = dividerOutput + "M " + (tetrisDem * x) + "," + (tetrisDem * y) + " ";
         i++
-        const [x , y] = divCoords[i];
-        dividerOutput = dividerOutput + "L " + (tetrisDem * x) + "," + (tetrisDem * y) + " ";
+        const [xx , yy] = divCoords[i];
+        dividerOutput = dividerOutput + "L " + (tetrisDem * xx) + "," + (tetrisDem * yy) + " ";
     };
     
     dividerOutput = dividerOutput + "Z";
