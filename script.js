@@ -74,9 +74,9 @@ function enableButtons(svgContent) {
 var layout = "1,1 2,1 1,2 2,2";
 
 function evalLayout() {
-    var coordinates = layout.split(" ").map(pair => {
+    var coordinates = layoutList[4].split(" ").map(pair => {
         const [x, y] = pair.split(",");
-        return [parseFloat(x), parseFloat(y)];
+        return [parseFloat(x-1), parseFloat(y-1)];
     });
     
     console.log(coordinates);
