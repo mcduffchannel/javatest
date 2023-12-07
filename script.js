@@ -7,24 +7,45 @@ const layoutIndex = "1,1 2,1 1,2 2,2:1,1 1,2 1,3 1,4:1,1 2,1 3,1 4,1:2,1 3,1 1,2
 const layoutList = layoutIndex.split(":");
 console.log(layoutList);
 
+const labelIndex = "A,C,D,B A,B,C,D A,B,C,D A,C,D,B A,B,C,D A,C,D,B A,B,C,D A,B,C,D A,B,C,D C,A,B,D D,A,B,C A,B,D,C A,B,C,D C,B,A,D A,B,C,D A,B,C,D B,A,C,D A,B,C,D A,B,D,C";
+const labelList = labelIndex.split(" ");
+console.log(labelIndex);
 
-function evalLayout() {
-    var output = ""
-    var coordinates = layoutList[4].split(" ").map(pair => {
+
+function evalLayout(tetrisIndex) {
+    var detailOutput = ""
+    var labelOutput = ""
+
+    var coordinates = layoutList[tetrisIndex].split(" ").map(pair => {
         const [x, y] = pair.split(",");
         return [parseFloat(x) - 1, parseFloat(y) - 1];
     });
 
     for (let i = 0; i < coordinates.length; i++) {
         const [x , y] = coordinates[i];
+
+        switch (layoutList[tetrisIndex].split(",")[i]) {
+            case "A":
+                console.log("A " + x + "|" + y)
+                    break;
+            case "B":
+                console.log("B " + x + "|" + y)
+                    break;
+            case "C":
+                console.log("C " + x + "|" + y)
+                    break;
+            case "D":
+                console.log("D " + x + "|" + y)
+                    break;
+        }
+        
         for (let z = 0; z < detailList.length; z ++) {
             detailElement = detailList[z].split(",");            
             const [a, b, c] = detailElement;
-            output = a + " " + ((tetrisDem * x) + Number(b)) + "," + ((tetrisDem * y) + Number(c));
-            console.log(output);            
+            detailOutput = detailOutput + a + " " + ((tetrisDem * x) + Number(b)) + "," + ((tetrisDem * y) + Number(c)) + " ";            
         };
     };
-
+    console.log(detailOutput);
 };
 
 
@@ -93,7 +114,7 @@ function enableButtons(svgContent) {
 var tetrisType = "assets/Tetris-J.svg";
 var rotPos = "A";
 
-evalLayout(layoutList[4]);
+evalLayout(4);
 
 document.getElementById("downloadBtn").addEventListener("click", downloadSVG);
 document.getElementById("oBtn").addEventListener("click", function() { 
