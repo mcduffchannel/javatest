@@ -1,43 +1,43 @@
 const tetrisDem = 20;
 
-const outlineO = "0,0 2,0 2,2 0,2:" ;
-const outlineI = "0,0 1,0 1,4 0,4:0,0 4,0 4,1 0,1:";
-const outlineS = "0,1 1,1 1,0 3,0 3,1 2,1 2,2 0,2:0,0 1,0 1,1 2,1 2,3 1,3 1,2 0,2:";
-const outlineZ = "0,0 2,0 2,1 3,1 3,2 1,2 1,1 0,1:1,0 2,0 2,2 1,2 1,3 0,3 0,1 1,1:";
-const outlineL = "0,0 1,0 1,2 2,2 2,3 0,3:0,0 3,0 3,1 1,1 1,2 0,2:0,0 2,0 2,3 1,3 1,1 0,1:0,1 2,1 2,0 3,0 3,2 0,2:";
-const outlineJ = "1,0 2,0 2,3 0,3 0,2 1,2:0,0 1,0 1,1 3,1 3,2 0,2:0,0 2,0 2,1 1,1 1,3 0,3:0,0 3,0 3,2 2,2 2,1 0,1:";
+const outlineO = "0,0 2,0 2,2 0,2" ;
+const outlineI = "0,0 1,0 1,4 0,4:0,0 4,0 4,1 0,1";
+const outlineS = "0,1 1,1 1,0 3,0 3,1 2,1 2,2 0,2:0,0 1,0 1,1 2,1 2,3 1,3 1,2 0,2";
+const outlineZ = "0,0 2,0 2,1 3,1 3,2 1,2 1,1 0,1:1,0 2,0 2,2 1,2 1,3 0,3 0,1 1,1";
+const outlineL = "0,0 1,0 1,2 2,2 2,3 0,3:0,0 3,0 3,1 1,1 1,2 0,2:0,0 2,0 2,3 1,3 1,1 0,1:0,1 2,1 2,0 3,0 3,2 0,2";
+const outlineJ = "1,0 2,0 2,3 0,3 0,2 1,2:0,0 1,0 1,1 3,1 3,2 0,2:0,0 2,0 2,1 1,1 1,3 0,3:0,0 3,0 3,2 2,2 2,1 0,1";
 const outlineT = "0,0 3,0 3,1 2,1 2,2 1,2 1,1 0,1:1,0 2,0 2,3 1,3 1,2 0,2 0,1 1,1:1,0 2,0 2,1 3,1 3,2 0,2 0,1 1,1:0,0 1,0 1,1 2,1 2,2 1,2 1,3 0,3";
-const outlineIndex = [outlineO, outlineI, outlineS, outlineZ, outlineL, outlineJ, outlineT].join("");
+const outlineIndex = [outlineO, outlineI, outlineS, outlineZ, outlineL, outlineJ, outlineT].join(":");
 const outlineList = outlineIndex.split(":");
 
-const divO = "0,1 2,1 1,0 1,1 1,1 1,2:";
-const divI = "0,1 1,1 0,2 1,2 0,3 1,3:1,0 1,1 2,0 2,1 3,0 3,1:";
-const divS = "1,1 1,2 1,1 2,1 2,0 2,1:0,1 1,1 1,1 1,2 1,2 2,2:";
-const divZ = "1,0 1,1 1,1 2,1 2,1 2,2:0,2 1,2 1,2 1,1 1,1 2,1:";
-const divL = "0,1 1,1 0,2 1,2 1,2 1,3:0,1 1,1 1,1 1,0 2,0 2,1:1,0 1,1 1,1 2,1 1,2 2,2:1,1 1,2 2,1 2,2 2,1 3,1:";
-const divJ = "1,1 2,1 1,2 2,2 1,2 1,3:0,1 1,1 1,1 1,2 2,1 2,2:1,0 1,1 0,1 1,1 0,2 1,2:1,0 1,1 2,0 2,1 2,1 3,1:";
+const divO = "0,1 2,1 1,0 1,1 1,1 1,2";
+const divI = "0,1 1,1 0,2 1,2 0,3 1,3:1,0 1,1 2,0 2,1 3,0 3,1";
+const divS = "1,1 1,2 1,1 2,1 2,0 2,1:0,1 1,1 1,1 1,2 1,2 2,2";
+const divZ = "1,0 1,1 1,1 2,1 2,1 2,2:0,2 1,2 1,2 1,1 1,1 2,1";
+const divL = "0,1 1,1 0,2 1,2 1,2 1,3:0,1 1,1 1,1 1,0 2,0 2,1:1,0 1,1 1,1 2,1 1,2 2,2:1,1 1,2 2,1 2,2 2,1 3,1";
+const divJ = "1,1 2,1 1,2 2,2 1,2 1,3:0,1 1,1 1,1 1,2 2,1 2,2:1,0 1,1 0,1 1,1 0,2 1,2:1,0 1,1 2,0 2,1 2,1 3,1";
 const divT = "1,0 1,1 1,1 2,1 2,0 2,1:1,1 1,2 1,1 2,1 1,2 2,2:1,1 2,1 1,1 1,2 2,1 2,2:0,1 1,1 1,1 1,2 0,2 1,2";
-const divIndex = [divO, divI, divS, divZ, divL, divJ, divT ].join("");
+const divIndex = [divO, divI, divS, divZ, divL, divJ, divT ].join(":");
 const divList = divIndex.split(":");
 
-const layoutO = "1,1 2,1 1,2 2,2:";
-const layoutI = "1,1 1,2 1,3 1,4:1,1 2,1 3,1 4,1:";
-const layoutS = "2,1 3,1 1,2 2,2:1,1 1,2 2,2 2,3:";
-const layoutZ = "1,1 2,1 2,2 3,2:2,1 2,2 1,2 1,3:";
-const layoutL = "1,1 1,2 1,3 2,3:1,2 1,1 2,1 3,1:1,1 2,1 2,2 2,3:1,2 2,2 3,2 3,1:";
-const layoutJ = "2,1 2,2 2,3 1,3:1,1 1,2 2,2 3,2:2,1 1,1 1,2 1,3:1,1 2,1 3,1 3,2:";
+const layoutO = "1,1 2,1 1,2 2,2";
+const layoutI = "1,1 1,2 1,3 1,4:1,1 2,1 3,1 4,1";
+const layoutS = "2,1 3,1 1,2 2,2:1,1 1,2 2,2 2,3";
+const layoutZ = "1,1 2,1 2,2 3,2:2,1 2,2 1,2 1,3";
+const layoutL = "1,1 1,2 1,3 2,3:1,2 1,1 2,1 3,1:1,1 2,1 2,2 2,3:1,2 2,2 3,2 3,1";
+const layoutJ = "2,1 2,2 2,3 1,3:1,1 1,2 2,2 3,2:2,1 1,1 1,2 1,3:1,1 2,1 3,1 3,2";
 const layoutT = "1,1 2,1 3,1 2,2:1,2 2,1 2,2 2,3:2,1 1,2 2,2 3,2:1,1 1,2 1,3 2,2";
-const layoutIndex = [layoutO, layoutI, layoutS, layoutZ, layoutL, layoutJ, layoutT].join("");
+const layoutIndex = [layoutO, layoutI, layoutS, layoutZ, layoutL, layoutJ, layoutT].join(":");
 const layoutList = layoutIndex.split(":");
 
-const labelO = "A,C,D,B ";
-const labelI = "A,B,C,D A,B,C,D ";
-const labelS = "A,C,D,B A,B,C,D ";
-const labelZ = "A,C,D,B A,B,C,D ";
-const labelL = "A,B,C,D A,B,C,D C,A,B,D D,A,B,C ";
-const labelJ = "A,B,D,C A,B,C,D C,B,A,D A,B,C,D ";
+const labelO = "A,C,D,B";
+const labelI = "A,B,C,D A,B,C,D";
+const labelS = "A,C,D,B A,B,C,D";
+const labelZ = "A,C,D,B A,B,C,D";
+const labelL = "A,B,C,D A,B,C,D C,A,B,D D,A,B,C";
+const labelJ = "A,B,D,C A,B,C,D C,B,A,D A,B,C,D";
 const labelT = "A,B,C,D B,A,C,D A,B,C,D A,B,D,C";
-const labelIndex = [labelO, labelI, labelS, labelZ, labelL, labelJ, labelT].join("");
+const labelIndex = [labelO, labelI, labelS, labelZ, labelL, labelJ, labelT].join(" ");
 const labelList = labelIndex.split(" ");
 
 const detailIndex = "M,0,0 L,2.5,2.5 L,17.5,2.5 L,20,0 M,17.5,2.5 L,17.5,17.5 L,20,20 M,17.5,17.5 L,2.5,17.5 L,0,20 M,2.5,17.5 L,2.5,2.5";
@@ -57,7 +57,7 @@ function evalLayout(tetrisIndex) {
 
     for (let i = 0; i < olCoords.length; i++) {
         const [x , y] = olCoords[i];
-        outlineOutput = outlineOutput + "L " + (tetrisDem * x) + "," + (tetrisDem * y) + " ";
+        outlineOutput = [outlineOutput, "L ", (tetrisDem * x), ",", (tetrisDem * y), " "].join("");
     };
 
     outlineOutput = outlineOutput.replace("L", "M");
@@ -70,10 +70,10 @@ function evalLayout(tetrisIndex) {
 
     for (let i = 0; i < divCoords.length; i++) {
         const [x , y] = divCoords[i];
-        dividerOutput = dividerOutput + "M " + (tetrisDem * x) + "," + (tetrisDem * y) + " ";
+        dividerOutput = [dividerOutput, "M ", (tetrisDem * x), ",", (tetrisDem * y), " "].join("");
         i++
         const [xx , yy] = divCoords[i];
-        dividerOutput = dividerOutput + "L " + (tetrisDem * xx) + "," + (tetrisDem * yy) + " ";
+        dividerOutput = [dividerOutput, "L ", (tetrisDem * xx), ",", (tetrisDem * yy), " "].join("");
     };
     
     dividerOutput = dividerOutput + "Z";
@@ -99,7 +99,7 @@ function evalLayout(tetrisIndex) {
         for (let z = 0; z < detailList.length; z ++) {
             detailElement = detailList[z].split(",");            
             const [a, b, c] = detailElement;
-            detailOutput = detailOutput + a + " " + ((tetrisDem * x) + Number(b)) + "," + ((tetrisDem * y) + Number(c)) + " ";            
+            detailOutput = [detailOutput, a, " ", ((tetrisDem * x) + Number(b)), ",", ((tetrisDem * y) + Number(c)), " "].join("");
         };
     };
 
