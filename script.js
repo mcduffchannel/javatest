@@ -103,33 +103,72 @@ function evalLayout(tetrisIndex) {
     console.log(demWH);
     console.log(labelXY);
     console.log(detailOutput);
+    return { demWH, outlineOutput, dividerOutput, detailOutput, labelXY );
 };
 
 
 function fetchTemplate(loadType, rotPos) {
     var xhr = new XMLHttpRequest();
+    var tetrisTypeIndex = 0;
+    var indexRef = loadType + rotPos
+
+    switch (indexRef) {
+        case "OA": tetrisTypeIndex = 0; break;
+        case "IA": tetrisTypeIndex = 1; break;
+        case "IB": tetrisTypeIndex = 2; break;
+        case "SA": tetrisTypeIndex = 3; break;
+        case "SB": tetrisTypeIndex = 4; break;
+        case "ZA": tetrisTypeIndex = 5; break;
+        case "ZB": tetrisTypeIndex = 6; break;
+        case "LA": tetrisTypeIndex = 7; break;
+        case "LB": tetrisTypeIndex = 8; break;
+        case "LC": tetrisTypeIndex = 9; break;
+        case "LD": tetrisTypeIndex = 10; break;
+        case "JA": tetrisTypeIndex = 11; break;
+        case "JB": tetrisTypeIndex = 12; break;
+        case "JC": tetrisTypeIndex = 13; break;
+        case "JD": tetrisTypeIndex = 14; break;
+        case "TA": tetrisTypeIndex = 15; break;
+        case "TB": tetrisTypeIndex = 16; break;
+        case "TC": tetrisTypeIndex = 17; break;
+        case "TD": tetrisTypeIndex = 18; break;
+    };
+    
     xhr.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
-            // Once the text is fetched, call updateText with the template
-            updateText(this.responseText.trim());
+            
+            updateText(this.responseText.trim(), tetrisTypeIndex);
         }
     };
-    xhr.open("GET", loadType, true);
+    xhr.open("GET", "asset/base.svg", true);
     xhr.send();
 }
 
-function updateText(template) {
+function updateText(template, tetrisTypeIndex) {
+    const layoutResult = evalLayout(tetrisTypeIndex);
+    
     var fieldLocationVal = document.getElementById("fieldLocation").value;
     var fieldFNameVal = document.getElementById("fieldFName").value;
     var fieldLNameVal = document.getElementById("fieldLName").value;
     var fieldDateVal = document.getElementById("fieldDate").value;
 
     var result = template;
+    result = result.replaceAll('${width}', layoutResult.demWH[0]);
+    result = result.replaceAll('${height}', layoutResult.demWH[1]);
+    result = result.replace('${outline}', layoutResult.outlineOutput);
+    result = result.replace('${dividers}', layoutResult.dividerOutput);
+    result = result.replace('${details}', layoutResult.detailOutput);
+    
+    result = result.replace('${xyLocation}', layoutResult.xyLabel[0]);
+    result = result.replace('${xyFName}', layoutResult.xyLabel[1]);
+    result = result.replace('${xyLName}', layoutResult.xyLabel[2]);
+    result = result.replace('${xyDate}', layoutResult.xyLabel[3]);
+    
     result = result.replace('${txtLocation}', fieldLocationVal);
     result = result.replace('${txtFName}', fieldFNameVal);
     result = result.replace('${txtLName}', fieldLNameVal);
     result = result.replace('${txtDate}', fieldDateVal);
-    result = result.replaceAll('${txtPos}', "0.7071 -0.7071 0.7071 0.7071");
+    
     
     var parser = new DOMParser();
     var doc = parser.parseFromString(result, "image/svg+xml");
@@ -142,9 +181,9 @@ function updateText(template) {
     document.getElementById("output").innerText = result;
 }
 
-function updateSelectedType() {
-    tetrisType = document.getElementById("selection").value;
-}
+//function updateSelectedType() {
+//    tetrisType = document.getElementById("selection").value;
+//}
 
 function downloadSVG() {
     var svgElement = document.getElementById("svgOutput").innerHTML;
@@ -168,61 +207,60 @@ function enableButtons(svgContent) {
     document.getElementById("rotDBtn").disabled = false;
 }
 
-var tetrisType = "assets/Tetris-J.svg";
+var tetrisType = "O";
 var rotPos = "A";
-
-evalLayout(3);
 
 document.getElementById("downloadBtn").addEventListener("click", downloadSVG);
 document.getElementById("oBtn").addEventListener("click", function() { 
     rotPos = "A"
+    tetrisType = "O";
     document.getElementById("rotABtn").disabled = true;
     document.getElementById("rotBBtn").disabled = true;
     document.getElementById("rotCBtn").disabled = true;
     document.getElementById("rotDBtn").disabled = true;
-    tetrisType = "assets/Tetris-O.svg";
     fetchTemplate(tetrisType, rotPos);
 });
+
 document.getElementById("iBtn").addEventListener("click", function() {
     rotPos = "A"
+    tetrisType = "I";
     enableButtons();
     document.getElementById("rotCBtn").disabled = true;
     document.getElementById("rotDBtn").disabled = true;
-    tetrisType = "assets/test.txt";
     fetchTemplate(tetrisType, rotPos);
 });
 document.getElementById("sBtn").addEventListener("click", function() {
     rotPos = "A"
+    tetrisType = "S";
     enableButtons();
     document.getElementById("rotCBtn").disabled = true;
     document.getElementById("rotDBtn").disabled = true;
-    tetrisType = "assets/test.txt";
     fetchTemplate(tetrisType, rotPos);
 });
 document.getElementById("zBtn").addEventListener("click", function() {
     rotPos = "A"
+    tetrisType = "Z";
     enableButtons();
     document.getElementById("rotCBtn").disabled = true;
     document.getElementById("rotDBtn").disabled = true;
-    tetrisType = "assets/test.txt";
     fetchTemplate(tetrisType, rotPos);
 });
 document.getElementById("lBtn").addEventListener("click", function() {
     rotPos = "A"
+    tetrisType = "L";
     enableButtons();
-    tetrisType = "assets/test.txt";
     fetchTemplate(tetrisType, rotPos);
 });
 document.getElementById("jBtn").addEventListener("click", function() {
     rotPos = "A"
+    tetrisType = "J";
     enableButtons();
-    tetrisType = "assets/Tetris-J.svg";
     fetchTemplate(tetrisType, rotPos);
 });
 document.getElementById("tBtn").addEventListener("click", function() {
     rotPos = "A"
+    tetrisType = "T";
     enableButtons();
-    tetrisType = "assets/test.txt";
     fetchTemplate(tetrisType, rotPos);
 });
 
