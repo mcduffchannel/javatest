@@ -33,7 +33,7 @@ function evalLayout(tetrisIndex) {
     };
 
     outlineOutput = outlineOutput.replace("L", "M");
-    outlineOutput = outlineOutput = + "Z";
+    outlineOutput = outlineOutput + "Z";
 
     console.log(outlineOutput);
     
