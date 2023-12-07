@@ -100,10 +100,12 @@ function evalLayout(tetrisIndex) {
     demWH[0] = (demWH[0] + 1) * tetrisDem
     demWH[1] = (demWH[1] + 1) * tetrisDem
     
-    console.log(demWH);
-    console.log(labelXY);
-    console.log(detailOutput);
-    return { demWH, outlineOutput, dividerOutput, detailOutput, labelXY };
+    return { demensions: demWH,
+            outline: outlineOutput,
+            dividers: dividerOutput,
+            details: detailOutput,
+            labels: labelXY
+        };
 };
 
 
@@ -153,16 +155,16 @@ function updateText(template, tetrisTypeIndex) {
     var fieldDateVal = document.getElementById("fieldDate").value;
 
     var result = template;
-    result = result.replaceAll('${width}', layoutResult.demWH[0]);
-    result = result.replaceAll('${height}', layoutResult.demWH[1]);
-    result = result.replace('${outline}', layoutResult.outlineOutput);
-    result = result.replace('${dividers}', layoutResult.dividerOutput);
-    result = result.replace('${details}', layoutResult.detailOutput);
+    result = result.replaceAll('${width}', layoutResult.demensions[0]);
+    result = result.replaceAll('${height}', layoutResult.demensions[1]);
+    result = result.replace('${outline}', layoutResult.outline);
+    result = result.replace('${dividers}', layoutResult.dividers);
+    result = result.replace('${details}', layoutResult.details);
     
-    result = result.replace('${xyLocation}', layoutResult.xyLabel[0]);
-    result = result.replace('${xyFName}', layoutResult.xyLabel[1]);
-    result = result.replace('${xyLName}', layoutResult.xyLabel[2]);
-    result = result.replace('${xyDate}', layoutResult.xyLabel[3]);
+    result = result.replace('${xyLocation}', layoutResult.labels[0]);
+    result = result.replace('${xyFName}', layoutResult.labels[1]);
+    result = result.replace('${xyLName}', layoutResult.labels[2]);
+    result = result.replace('${xyDate}', layoutResult.labels[3]);
     
     result = result.replace('${txtLocation}', fieldLocationVal);
     result = result.replace('${txtFName}', fieldFNameVal);
@@ -180,10 +182,6 @@ function updateText(template, tetrisTypeIndex) {
     
     document.getElementById("output").innerText = result;
 }
-
-//function updateSelectedType() {
-//    tetrisType = document.getElementById("selection").value;
-//}
 
 function downloadSVG() {
     var svgElement = document.getElementById("svgOutput").innerHTML;
