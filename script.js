@@ -86,7 +86,7 @@ function evalLayout() {
         for (let z = 0; z < detailList.length; z ++) {
             detailElement = detailList[z].split(",");            
             const [a, b, c] = detailElement;
-            output = a + " " + (tetrisDem * b) + "," + (tetrisDem * c);
+            output = a + " " + ((tetrisDem * x) + b) + "," + ((tetrisDem * y) + c);
             console.log(output);            
         };
     };
