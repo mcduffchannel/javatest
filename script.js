@@ -10,21 +10,38 @@ const outlineT = "0,0 3,0 3,1 2,1 2,2 1,2 1,1 0,1:1,0 2,0 2,3 1,3 1,2 0,2 0,1 1,
 const outlineIndex = [outlineO, outlineI, outlineS, outlineZ, outlineL, outlineJ, outlineT].join("");
 const outlineList = outlineIndex.split(":");
 
-const divIndexA = "0,1 2,1 1,0 1,1 1,1 1,2:0,1 1,1 0,2 1,2 0,3 1,3:1,0 1,1 2,0 2,1 3,0 3,1:1,1 1,2 1,1 2,1 2,0 2,1:0,1 1,1 1,1 1,2 1,2 2,2:1,0 1,1 1,1 2,1 2,1 2,2:0,2 1,2 1,2 1,1 1,1 2,1:0,1 1,1 0,2 1,2 1,2 1,3:";
-const divIndexB = "0,1 1,1 1,1 1,0 2,0 2,1:1,0 1,1 1,1 2,1 1,2 2,2:1,1 1,2 2,1 2,2 2,1 3,1:1,1 2,1 1,2 2,2 1,2 1,3:0,1 1,1 1,1 1,2 2,1 2,2:1,0 1,1 0,1 1,1 0,2 1,2:1,0 1,1 2,0 2,1 2,1 3,1:1,0 1,1 1,1 2,1 2,0 2,1:";
-const divIndexC = "1,1 1,2 1,1 2,1 1,2 2,2:1,1 2,1 1,1 1,2 2,1 2,2:0,1 1,1 1,1 1,2 0,2 1,2";
-const divIndex = divIndexA + divIndexB + divIndexC;
+const divO = "0,1 2,1 1,0 1,1 1,1 1,2:";
+const divI = "0,1 1,1 0,2 1,2 0,3 1,3:1,0 1,1 2,0 2,1 3,0 3,1:";
+const divS = "1,1 1,2 1,1 2,1 2,0 2,1:0,1 1,1 1,1 1,2 1,2 2,2:";
+const divZ = "1,0 1,1 1,1 2,1 2,1 2,2:0,2 1,2 1,2 1,1 1,1 2,1:";
+const divL = "0,1 1,1 0,2 1,2 1,2 1,3:0,1 1,1 1,1 1,0 2,0 2,1:1,0 1,1 1,1 2,1 1,2 2,2:1,1 1,2 2,1 2,2 2,1 3,1:";
+const divJ = "1,1 2,1 1,2 2,2 1,2 1,3:0,1 1,1 1,1 1,2 2,1 2,2:1,0 1,1 0,1 1,1 0,2 1,2:1,0 1,1 2,0 2,1 2,1 3,1:";
+const divT = "1,0 1,1 1,1 2,1 2,0 2,1:1,1 1,2 1,1 2,1 1,2 2,2:1,1 2,1 1,1 1,2 2,1 2,2:0,1 1,1 1,1 1,2 0,2 1,2";
+const divIndex = [divO, divI, divS, divZ, divL, divJ, divT ].join("");
 const divList = divIndex.split(":");
+
+const layoutO = "1,1 2,1 1,2 2,2:";
+const layoutI = "1,1 1,2 1,3 1,4:1,1 2,1 3,1 4,1:";
+const layoutS = "2,1 3,1 1,2 2,2:1,1 1,2 2,2 2,3:";
+const layoutZ = "1,1 2,1 2,2 3,2:2,1 2,2 1,2 1,3:";
+const layoutL = "1,1 1,2 1,3 2,3:1,2 1,1 2,1 3,1:1,1 2,1 2,2 2,3:1,2 2,2 3,2 3,1:";
+const layoutJ = "2,1 2,2 2,3 1,3:1,1 1,2 2,2 3,2:2,1 1,1 1,2 1,3:1,1 2,1 3,1 3,2:";
+const layoutT = "1,1 2,1 3,1 2,2:1,2 2,1 2,2 2,3:2,1 1,2 2,2 3,2:1,1 1,2 1,3 2,2";
+const layoutIndex = [layoutO, layoutI, layoutS, layoutZ, layoutL, layoutJ, layoutT].join("");
+const layoutList = layoutIndex.split(":");
+
+const labelO = "A,C,D,B ";
+const labelI = "A,B,C,D A,B,C,D ";
+const labelS = "A,C,D,B A,B,C,D ";
+const labelZ = "A,C,D,B A,B,C,D ";
+const labelL = "A,B,C,D A,B,C,D C,A,B,D D,A,B,C ";
+const labelJ = "A,B,D,C A,B,C,D C,B,A,D A,B,C,D ";
+const labelT = "A,B,C,D B,A,C,D A,B,C,D A,B,D,C";
+const labelIndex = [labelO, labelI, labelS, labelZ, labelL, labelJ, labelT].join("");
+const labelList = labelIndex.split(" ");
 
 const detailIndex = "M,0,0 L,2.5,2.5 L,17.5,2.5 L,20,0 M,17.5,2.5 L,17.5,17.5 L,20,20 M,17.5,17.5 L,2.5,17.5 L,0,20 M,2.5,17.5 L,2.5,2.5";
 const detailList = detailIndex.split(" ");
-
-const layoutIndex = "1,1 2,1 1,2 2,2:1,1 1,2 1,3 1,4:1,1 2,1 3,1 4,1:2,1 3,1 1,2 2,2:1,1 1,2 2,2 2,3:1,1 2,1 2,2 3,2:2,1 2,2 1,2 1,3:1,1 1,2 1,3 2,3:1,2 1,1 2,1 3,1:1,1 2,1 2,2 2,3:1,2 2,2 3,2 3,1:2,1 2,2 2,3 1,3:1,1 1,2 2,2 3,2:2,1 1,1 1,2 1,3:1,1 2,1 3,1 3,2:1,1 2,1 3,1 2,2:1,2 2,1 2,2 2,3:2,1 1,2 2,2 3,2:1,1 1,2 1,3 2,2";
-const layoutList = layoutIndex.split(":");
-
-const labelIndex = "A,C,D,B A,B,C,D A,B,C,D A,C,D,B A,B,C,D A,C,D,B A,B,C,D A,B,C,D A,B,C,D C,A,B,D D,A,B,C A,B,D,C A,B,C,D C,B,A,D A,B,C,D A,B,C,D B,A,C,D A,B,C,D A,B,D,C";
-const labelList = labelIndex.split(" ");
-
 
 function evalLayout(tetrisIndex) {
     var labelXY = [];
