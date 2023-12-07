@@ -29,13 +29,13 @@ function evalLayout(tetrisIndex) {
                 console.log("A " + ((x * tetrisDem) + (tetrisDem / 2)) + "|" + ((y * tetrisDem) + (tetrisDem / 2)));
                     break;
             case "B":
-                console.log("B " + x + "|" + y);
+                console.log("B " + ((x * tetrisDem) + (tetrisDem / 2)) + "|" + ((y * tetrisDem) + (tetrisDem / 2)));
                     break;
             case "C":
-                console.log("C " + x + "|" + y);
+                console.log("C " + ((x * tetrisDem) + (tetrisDem / 2)) + "|" + ((y * tetrisDem) + (tetrisDem / 2)));
                     break;
             case "D":
-                console.log("D " + x + "|" + y);
+                console.log("D " + ((x * tetrisDem) + (tetrisDem / 2)) + "|" + ((y * tetrisDem) + (tetrisDem / 2)));
                     break;
         }
         
