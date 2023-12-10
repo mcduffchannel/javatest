@@ -190,7 +190,7 @@ function updateText(template, tetrisTypeIndex) {
 }
 
 function getFormattedDate() {
-    const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+    const months = ["JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"];
     const date = new Date();
 
     const day = String(date.getDate()).padStart(2, '0');
