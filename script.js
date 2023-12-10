@@ -161,6 +161,7 @@ function updateText(template, tetrisTypeIndex) {
     var fieldDateVal = document.getElementById("fieldDate").value;
 
     var result = template;
+    
     result = result.replaceAll('${width}', layoutResult.demensions[0]);
     result = result.replaceAll('${height}', layoutResult.demensions[1]);
     result = result.replace('${outline}', layoutResult.outline);
@@ -186,6 +187,17 @@ function updateText(template, tetrisTypeIndex) {
     svgContainer.appendChild(svgElement);
     
     document.getElementById("output").innerText = result;
+}
+
+function getFormattedDate() {
+    const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+    const date = new Date();
+
+    const day = String(date.getDate()).padStart(2, '0');
+    const month = months[date.getMonth()];
+    const year = date.getFullYear();
+
+    return `${day} ${month} ${year}`;
 }
 
 function downloadSVG() {
@@ -285,6 +297,8 @@ document.getElementById("fieldLocation").addEventListener("input", () => fetchTe
 document.getElementById("fieldFName").addEventListener("input", () => fetchTemplate(tetrisType, rotPos));
 document.getElementById("fieldLName").addEventListener("input", () => fetchTemplate(tetrisType, rotPos));
 document.getElementById("fieldDate").addEventListener("input", () => fetchTemplate(tetrisType, rotPos));
+document.getElementById("fieldDate").disabled = true;
+document.getElementById("fieldDate").value = getFormattedDate()
 
 fetchTemplate(tetrisType, rotPos);
 
