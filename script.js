@@ -167,10 +167,6 @@ function updateText(template, tetrisTypeIndex) {
     var fieldLNameVal = document.getElementById("fieldLName").value;
     var fieldDateVal = document.getElementById("fieldDate").value;
 
-    fieldLocationVal = fieldLocationVal.toUpperCase
-    fieldFNameVal = fieldFNameVal.toUpperCase
-    fieldLNameVal = fieldLNameVal.toUpperCase
-
     var result = template;
     
     result = result.replaceAll('${width}', layoutResult.demensions[0]);
@@ -184,9 +180,9 @@ function updateText(template, tetrisTypeIndex) {
     result = result.replace('${xyLName}', layoutResult.labels[2]);
     result = result.replace('${xyDate}', layoutResult.labels[3]);
     
-    result = result.replace('${txtLocation}', fieldLocationVal);
-    result = result.replace('${txtFName}', fieldFNameVal);
-    result = result.replace('${txtLName}', fieldLNameVal);
+    result = result.replace('${txtLocation}', fieldLocationVal.toUpperCase());
+    result = result.replace('${txtFName}', fieldFNameVal.toUpperCase());
+    result = result.replace('${txtLName}', fieldLNameVal.toUpperCase());
     result = result.replace('${txtDate}', fieldDateVal);
         
     var parser = new DOMParser();
