@@ -24,6 +24,15 @@
         <tr>
             <td class="align-right"><label for="fieldLocation">Location:</label></td>
             <td class="align-left"><input type="text" id="fieldLocation" oninput="updateText()"></td>
+            <td rowspan="6">
+                 <div id="svgOutput"></div>
+                <br><br>
+                <button id="downloadBtn">Download SVG</button>
+            </td>
+        </tr>
+        <tr>
+            <td class="align-right"><label for="fieldLocation">Location:</label></td>
+            <td class="align-left"><input type="text" id="fieldLocation" oninput="updateText()"></td>
         </tr>
         <tr>
             <td class="align-right"><label for="fieldFName">Firstname:</label></td>
@@ -59,10 +68,6 @@
             </td>
         </tr>
     </table>
-    <br><br>    
-    <div id="svgOutput"></div>
-    <br><br>
-    <button id="downloadBtn">Download SVG</button>
     <br><br>
     <p id="output"></p>
     </font>
