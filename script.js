@@ -112,7 +112,7 @@ function evalLayout(tetrisIndex) {
             case "D": w = 3; break;
         }
 
-        console.log(w);
+        console.log(w + " / x: " + x + " / y:" + y);
 
         labelXY[w] = (((x * tetrisDem) + (tetrisDem / 2)) + " " + ((y * tetrisDem) + (tetrisDem / 2)));
 
