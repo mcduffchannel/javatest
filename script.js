@@ -32,10 +32,10 @@ const layoutList = layoutIndex.split(":");
 
 const labelO = "A,D,B,C";
 const labelI = "A,B,C,D A,B,C,D";
-const labelS = "A,C,D,B A,B,C,D";
-const labelZ = "A,C,D,B A,B,C,D";
-const labelL = "A,B,C,D A,B,C,D C,A,B,D D,A,B,C";
-const labelJ = "A,B,D,C A,B,C,D C,B,A,D A,B,C,D";
+const labelS = "A,D,C,B A,B,C,D";
+const labelZ = "A,D,C,B A,B,C,D";
+const labelL = "A,D,B,C A,B,C,D C,A,B,D D,A,B,C";
+const labelJ = "A,D,C,B A,B,C,D C,B,A,D A,B,C,D";
 const labelT = "A,B,C,D B,A,C,D A,B,C,D A,B,D,C";
 const labelIndex = [labelO, labelI, labelS, labelZ, labelL, labelJ, labelT].join(" ");
 const labelList = labelIndex.split(" ");
