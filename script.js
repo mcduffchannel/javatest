@@ -44,7 +44,7 @@ const detailIndex = "M,0,0 L,2.5,2.5 L,17.5,2.5 L,20,0 M,17.5,2.5 L,17.5,17.5 L,
 const detailList = detailIndex.split(" ");
 
 function evalLayout(tetrisIndex) {
-    var labelXY = [];
+    var labelXY = [" ", " ", " ", " "];
     var detailOutput = "";
     var outlineOutput = "";
     var dividerOutput = "";
@@ -88,13 +88,17 @@ function evalLayout(tetrisIndex) {
 
         if (x > demWH[0]) { demWH[0] = x; };
         if (y > demWH[1]) { demWH[1] = y; };
+
+        var w = 0;
         
         switch (labelList[tetrisIndex].split(",")[i]) {
-            case "A": labelXY.push(((x * tetrisDem) + (tetrisDem / 2)) + " " + ((y * tetrisDem) + (tetrisDem / 2))); break;
-            case "B": labelXY.push(((x * tetrisDem) + (tetrisDem / 2)) + " " + ((y * tetrisDem) + (tetrisDem / 2))); break;
-            case "C": labelXY.push(((x * tetrisDem) + (tetrisDem / 2)) + " " + ((y * tetrisDem) + (tetrisDem / 2))); break;
-            case "D": labelXY.push(((x * tetrisDem) + (tetrisDem / 2)) + " " + ((y * tetrisDem) + (tetrisDem / 2))); break;
+            case "A": w = 0; break;
+            case "B": w = 1; break;
+            case "C": w = 2; break;
+            case "D": w = 3; break;
         }
+
+        labelXY[w] = (((x * tetrisDem) + (tetrisDem / 2)) + " " + ((y * tetrisDem) + (tetrisDem / 2)));
         
         for (let z = 0; z < detailList.length; z ++) {
             detailElement = detailList[z].split(",");            
