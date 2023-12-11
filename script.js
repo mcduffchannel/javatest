@@ -104,7 +104,6 @@ function evalLayout(tetrisIndex) {
         }
 
         labelXY[w] = (((x * tetrisDem) + (tetrisDem / 2)) + " " + ((y * tetrisDem) + (tetrisDem / 2)));
-
         
         for (let z = 0; z < detailList.length; z ++) {
             detailElement = detailList[z].split(",");            
@@ -181,9 +180,9 @@ function updateText(template, tetrisTypeIndex) {
     result = result.replace('${xyLName}', layoutResult.labels[2]);
     result = result.replace('${xyDate}', layoutResult.labels[3]);
     
-    result = result.replace('${txtLocation}', fieldLocationVal.toUpperCase);
-    result = result.replace('${txtFName}', fieldFNameVal.toUpperCase);
-    result = result.replace('${txtLName}', fieldLNameVal.toUpperCase);
+    result = result.replace('${txtLocation}', fieldLocationVal);
+    result = result.replace('${txtFName}', fieldFNameVal);
+    result = result.replace('${txtLName}', fieldLNameVal);
     result = result.replace('${txtDate}', fieldDateVal);
         
     var parser = new DOMParser();
