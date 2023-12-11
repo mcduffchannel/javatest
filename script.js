@@ -167,6 +167,10 @@ function updateText(template, tetrisTypeIndex) {
     var fieldLNameVal = document.getElementById("fieldLName").value;
     var fieldDateVal = document.getElementById("fieldDate").value;
 
+    fieldLocationVal = fieldLocationVal.toUpperCase
+    fieldFNameVal = fieldFNameVal.toUpperCase
+    fieldLNameVal = fieldLNameVal.toUpperCase
+
     var result = template;
     
     result = result.replaceAll('${width}', layoutResult.demensions[0]);
