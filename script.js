@@ -30,7 +30,7 @@ const layoutT = "1,1 2,1 3,1 2,2:1,2 2,1 2,2 2,3:2,1 1,2 2,2 3,2:1,1 1,2 1,3 2,2
 const layoutIndex = [layoutO, layoutI, layoutS, layoutZ, layoutL, layoutJ, layoutT].join(":");
 const layoutList = layoutIndex.split(":");
 
-const labelO = "A,C,D,B";
+const labelO = "A,D,B,C";
 const labelI = "A,B,C,D A,B,C,D";
 const labelS = "A,C,D,B A,B,C,D";
 const labelZ = "A,C,D,B A,B,C,D";
