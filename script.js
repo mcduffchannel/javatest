@@ -30,8 +30,7 @@ const layoutT = "1,1 2,1 3,1 2,2:1,2 2,1 2,2 2,3:2,1 1,2 2,2 3,2:1,1 1,2 1,3 2,2
 const layoutIndex = [layoutO, layoutI, layoutS, layoutZ, layoutL, layoutJ, layoutT].join(":");
 const layoutList = layoutIndex.split(":");
 
-//const labelO = "A,C,D,B";
-const labelO = "B,D,C,A";
+const labelO = "A,C,D,B";
 const labelI = "A,B,C,D A,B,C,D";
 const labelS = "A,C,D,B A,B,C,D";
 const labelZ = "A,C,D,B A,B,C,D";
@@ -91,6 +90,8 @@ function evalLayout(tetrisIndex) {
         if (y > demWH[1]) { demWH[1] = y; };
 
         var w = 0;
+
+        console.log(labelList[tetrisIndex].split(",")[i]);
         
         switch (labelList[tetrisIndex].split(",")[i]) {
             case "A": w = 0; break;
@@ -99,7 +100,11 @@ function evalLayout(tetrisIndex) {
             case "D": w = 3; break;
         }
 
+        console.log(w);
+
         labelXY[w] = (((x * tetrisDem) + (tetrisDem / 2)) + " " + ((y * tetrisDem) + (tetrisDem / 2)));
+
+        console.log(labelXY[w])
         
         for (let z = 0; z < detailList.length; z ++) {
             detailElement = detailList[z].split(",");            
