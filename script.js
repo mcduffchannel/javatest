@@ -193,7 +193,7 @@ function updateText(template, tetrisTypeIndex) {
     svgContainer.innerHTML = '';
     svgContainer.appendChild(svgElement);
     
-    document.getElementById("output").innerText = result;
+    //document.getElementById("output").innerText = result;
 }
 
 function getFormattedDate() {
