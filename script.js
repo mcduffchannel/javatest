@@ -50,20 +50,13 @@ function evalLayout(tetrisIndex) {
     var dividerOutput = "";
     var demWH = [0, 0];
 
-    //var olCoords = outlineList[tetrisIndex].split(" ").map(pair => {
-    //    const [x, y] = pair.split(",");
-    //    return [parseFloat(x), parseFloat(y)];
-    //});
-
-    console.log("tetrisIndex:", tetrisIndex);
-    console.log("outlineList:", outlineList);
-
     if (outlineList[tetrisIndex] !== undefined) {
         var olCoords = outlineList[tetrisIndex].split(" ").map(pair => {
         const [x, y] = pair.split(",");
         return [parseFloat(x), parseFloat(y)];
         });
     } else {
+        // ignore this, just me catching lazy code
         console.error("outlineList[tetrisIndex] is undefined");
     }
 
@@ -102,8 +95,6 @@ function evalLayout(tetrisIndex) {
         if (y > demWH[1]) { demWH[1] = y; };
 
         var w = 0;
-
-        console.log(labelList[tetrisIndex].split(",")[i]);
         
         switch (labelList[tetrisIndex].split(",")[i]) {
             case "A": w = 0; break;
@@ -112,11 +103,8 @@ function evalLayout(tetrisIndex) {
             case "D": w = 3; break;
         }
 
-        console.log(w + " / x: " + x + " / y:" + y);
-
         labelXY[w] = (((x * tetrisDem) + (tetrisDem / 2)) + " " + ((y * tetrisDem) + (tetrisDem / 2)));
 
-        console.log(labelXY[w])
         
         for (let z = 0; z < detailList.length; z ++) {
             detailElement = detailList[z].split(",");            
@@ -135,7 +123,6 @@ function evalLayout(tetrisIndex) {
             labels: labelXY
         };
 };
-
 
 function fetchTemplate(loadType, rotPos) {
     var xhr = new XMLHttpRequest();
@@ -166,7 +153,6 @@ function fetchTemplate(loadType, rotPos) {
     
     xhr.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
-            
             updateText(this.responseText.trim(), tetrisTypeIndex);
         }
     };
@@ -195,9 +181,9 @@ function updateText(template, tetrisTypeIndex) {
     result = result.replace('${xyLName}', layoutResult.labels[2]);
     result = result.replace('${xyDate}', layoutResult.labels[3]);
     
-    result = result.replace('${txtLocation}', fieldLocationVal);
-    result = result.replace('${txtFName}', fieldFNameVal);
-    result = result.replace('${txtLName}', fieldLNameVal);
+    result = result.replace('${txtLocation}', fieldLocationVal.toUpperCase);
+    result = result.replace('${txtFName}', fieldFNameVal.toUpperCase);
+    result = result.replace('${txtLName}', fieldLNameVal.toUpperCase);
     result = result.replace('${txtDate}', fieldDateVal);
         
     var parser = new DOMParser();
