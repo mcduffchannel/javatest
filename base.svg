@@ -10,7 +10,7 @@
 <!-- text -->
 <g id="p-2" style="fill:rgb(0,255,0); stroke-linecap:round; stroke-linejoin:round;
 					font-weight:bold; font-family:sans-serif; font-style:normal;
-					font-size:{size}px; text-anchor:middle; dominant-baseline:middle">
+					font-size:${size}px; text-anchor:middle; dominant-baseline:middle">
 	<text transform="matrix( 0.7071 -0.7071 0.7071 0.7071 ${xyLocation} )">${txtLocation}</text>	
 	<text transform="matrix( 0.7071 -0.7071 0.7071 0.7071 ${xyFName} )">${txtFName}</text>
 	<text transform="matrix( 0.7071 -0.7071 0.7071 0.7071 ${xyLName} )">${txtLName}</text>
