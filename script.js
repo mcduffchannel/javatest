@@ -40,7 +40,8 @@ const labelT = "A,B,C,D B,A,C,D A,B,C,D A,B,D,C";
 const labelIndex = [labelO, labelI, labelS, labelZ, labelL, labelJ, labelT].join(" ");
 const labelList = labelIndex.split(" ");
 
-const detailIndex = "M,0,0 L,2.5,2.5 L,17.5,2.5 L,20,0 M,17.5,2.5 L,17.5,17.5 L,20,20 M,17.5,17.5 L,2.5,17.5 L,0,20 M,2.5,17.5 L,2.5,2.5";
+const detailIndex = "M,1,0 L,6,5 L,24,5 L,29,0 Z M,30,1 L,25,6 L,25,24 L,30,29 Z M,29,30 L,24,25 L,6,25 L,1,30 Z M,0,29 L,5,24 L,5,6 L,0,1 Z";
+//const detailIndex = "M,0,0 L,2.5,2.5 L,17.5,2.5 L,20,0 M,17.5,2.5 L,17.5,17.5 L,20,20 M,17.5,17.5 L,2.5,17.5 L,0,20 M,2.5,17.5 L,2.5,2.5";
 const detailList = detailIndex.split(" ");
 
 function evalLayout(tetrisIndex) {
@@ -108,7 +109,14 @@ function evalLayout(tetrisIndex) {
         for (let z = 0; z < detailList.length; z ++) {
             detailElement = detailList[z].split(",");            
             const [a, b, c] = detailElement;
-            detailOutput = [detailOutput, a, " ", ((tetrisDem * x) + Number(b)), ",", ((tetrisDem * y) + Number(c)), " "].join("");
+            
+            switch (a) {
+                case "Z":
+                    detailOutput = detailOutput + " Z ";
+                break;
+                default:
+                    detailOutput = [detailOutput, a, " ", ((tetrisDem * x) + Number(b)), ",", ((tetrisDem * y) + Number(c)), " "].join("");
+            }
         };
     };
 
@@ -172,7 +180,7 @@ function updateText(template, tetrisTypeIndex) {
     result = result.replaceAll('${width}', layoutResult.demensions[0]);
     result = result.replaceAll('${height}', layoutResult.demensions[1]);
     result = result.replace('${outline}', layoutResult.outline);
-    result = result.replace('${dividers}', layoutResult.dividers);
+    //result = result.replace('${dividers}', layoutResult.dividers);
     result = result.replace('${details}', layoutResult.details);
     
     result = result.replace('${xyLocation}', layoutResult.labels[0]);
