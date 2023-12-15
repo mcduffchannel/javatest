@@ -1,4 +1,4 @@
-const tetrisDem = 20;
+const tetrisDem = 30;
 
 const outlineO = "0,0 2,0 2,2 0,2";
 const outlineI = "0,0 1,0 1,4 0,4:0,0 4,0 4,1 0,1";
