@@ -176,6 +176,8 @@ function updateText(template, tetrisTypeIndex) {
     var fieldDateVal = document.getElementById("fieldDate").value;
     var fieldSizeVal = document.getElementById("sizeSlider").value;
 
+    console.log(fieldSizeVal);
+    
     var result = template;
     
     result = result.replaceAll('${width}', layoutResult.demensions[0]);
