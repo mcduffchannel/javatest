@@ -174,6 +174,7 @@ function updateText(template, tetrisTypeIndex) {
     var fieldFNameVal = document.getElementById("fieldFName").value;
     var fieldLNameVal = document.getElementById("fieldLName").value;
     var fieldDateVal = document.getElementById("fieldDate").value;
+    var fieldSizeVal = document.getElementById("sizeSlider").value;
 
     var result = template;
     
@@ -187,6 +188,7 @@ function updateText(template, tetrisTypeIndex) {
     result = result.replace('${xyFName}', layoutResult.labels[1]);
     result = result.replace('${xyLName}', layoutResult.labels[2]);
     result = result.replace('${xyDate}', layoutResult.labels[3]);
+    result = result.replace('${size}', fieldSizeVal);
     
     result = result.replace('${txtLocation}', fieldLocationVal.toUpperCase());
     result = result.replace('${txtFName}', fieldFNameVal.toUpperCase());
@@ -307,6 +309,8 @@ document.getElementById("rotABtn").addEventListener("click", function() { rotPos
 document.getElementById("rotBBtn").addEventListener("click", function() { rotPos = "B"; fetchTemplate(tetrisType, rotPos); });
 document.getElementById("rotCBtn").addEventListener("click", function() { rotPos = "C"; fetchTemplate(tetrisType, rotPos); });
 document.getElementById("rotDBtn").addEventListener("click", function() { rotPos = "D"; fetchTemplate(tetrisType, rotPos); });
+
+document.getElementById("sizeSlider").addEventListener("input", () => fetchTemplate(tetrisType, rotPos));
 
 document.getElementById("fieldLocation").addEventListener("input", () => fetchTemplate(tetrisType, rotPos));
 document.getElementById("fieldFName").addEventListener("input", () => fetchTemplate(tetrisType, rotPos));
