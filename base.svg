@@ -3,12 +3,12 @@
 <title>Tetris</title>
 
 <!-- details -->
-<g id="p-1" style="fill:none; stroke-linecap:round; stroke-linejoin:round; stroke:rgb(0,0,255); stroke-width:0.2">
+<g id="p-0" style="fill:none; stroke-linecap:round; stroke-linejoin:round; stroke:rgb(0,0,255); stroke-width:0.2">
 	<path d="${details}"	/>
 </g>
 
 <!-- text -->
-<g id="p-2" style="fill:rgb(0,255,0); stroke-linecap:round; stroke-linejoin:round;
+<g id="p-1" style="fill:rgb(0,255,0); stroke-linecap:round; stroke-linejoin:round;
 					font-weight:bold; font-family:sans-serif; font-style:normal;
 					font-size:${size}px; text-anchor:middle; dominant-baseline:middle">
 	<text transform="matrix( 0.7071 -0.7071 0.7071 0.7071 ${xyLocation} )">${txtLocation}</text>	
@@ -17,7 +17,7 @@
 	<text transform="matrix( 0.7071 -0.7071 0.7071 0.7071 ${xyDate} )">${txtDate}</text>
 
 <!-- outline -->
-<g id="p-0" style="fill:none; stroke-linecap:round; stroke-linejoin:round; stroke:rgb(0,0,0); stroke-width:0.2">	
+<g id="p-2" style="fill:none; stroke-linecap:round; stroke-linejoin:round; stroke:rgb(0,0,0); stroke-width:0.2">	
 	<path d="${outline}"/>
 </g>
 	
