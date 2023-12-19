@@ -2,7 +2,7 @@
 <svg width="${width}mm" height="${height}mm" viewBox="0 0 ${width} ${height}" xmlns="http://www.w3.org/2000/svg">
 <title>Tetris</title>
 
-<g id="p-1" style="fill:rgb(0,0,255); stroke-linecap:round; stroke-linejoin:round;
+<g id="p-0" style="stroke-linecap:round; stroke-linejoin:round; stroke:rgb(0,0,255); stroke-width:0.2; fill:none;
 					font-weight:bold; font-family:sans-serif; font-style:normal;
 					font-size:${size}px; text-anchor:middle; dominant-baseline:middle">
 	<path d="${details}"/>
@@ -14,7 +14,7 @@
 <g/>
 	
 <!-- outline -->
-<g id="p-2" style="fill:none; stroke-linecap:round; stroke-linejoin:round; stroke:rgb(0,0,0); stroke-width:0.2">	
+<g id="p-1" style="fill:none; stroke-linecap:round; stroke-linejoin:round; stroke:rgb(0,0,0); stroke-width:0.2">	
 	<path d="${outline}"/>
 </g>
 </svg>
